@@ -1,0 +1,190 @@
+class code,1a,1b,1c,2a,2b,2c,3a,3b,3c,3d,4a,4b,4c,4d,5a,5b,5c,6a,6b,6c,6d,7a,7b,7c
+CEDF70900, , ,i, ,i, , ,m, ,m, , ,u,i, , , ,m,m, , , , ,m
+ECF70000, , ,i, ,i, , ,m, ,m, , ,u,i, , , ,m,m, , , , ,m
+ECF20000/70000, ,im,m,mu,imu, ,imua,imua,mu,m,iu,mu,mu,imua,m, , ,u,imua,m,imu, ,m, 
+ECF20100/70100, ,im,m,mu,imu, ,imua,imua,mu,m,iu,mu,mu,imua,m, , ,u,imua,m,imu, ,m, 
+CEDF70600, ,im,m,mu,imu, ,imua,imua,mu,m,iu,mu,mu,imua,m, , ,u,imua,m,imu, ,m, 
+QSTB40380, ,im,m,mu,imu, ,imua,imua,mu,m,iu,mu,mu,imua,m, , ,u,imua,m,imu, ,m, 
+SEDF20300/70300, ,im,m,mu,imu, ,imua,imua,mu,m,iu,mu,mu,imua,m, , ,u,imua,m,imu, ,m, 
+SEDF72000,m,i,u,i,i,i,m,m,m,i,u,i,i,i,u,u,i,i,i,i,m,i, ,i
+ECF70200, , ,u, ,m,u,ua, ,m,m, ,u, ,m,u,u,u, , ,u, , ,ua,ua
+CEDF71600,ua, ,u,m,m,m,ua, , ,m, , , , ,u, , , , ,ua, ,ua,ua,ua
+CHND71200,im,iu,iu,i,i,imua,i,imu,i,imu,imua,imua,i,i,imua,imua,imua,imu,imua,i,imu,i,imua,imua
+CHND71300,imu,im,i,i,i,i, ,i,i,i,imu,i,iu, ,imua,i,i,i,i, ,iu,i,iua,imu
+LATED71200,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im
+LATED71300,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im
+SEDC32300/72300,u,m,u,m,u,m,m,u,m,m,u,m,m,m,m,m,m,u,m,m,u,u,u,m
+SEDC30700/70700,u,m,m,m,u,u,ua,ua,m,i,u,m,u,u,u,m,u,ua,u,u,u,u,u,ua
+SEDC21300/71300,ua, ,m,ua,ua,i, ,u, , ,u,u, , ,u,ua,u,ua,ua,ua, , ,u,u
+SEDC71900,iu, , ,iu, ,iu, , , , ,iu,iu, , ,iu,iu, , ,iu, , , ,iu, 
+CHND73100,imua,imua,i,i,i,imu,i,imu,i,iu,i,iua,i,i,i,i,i,imua,i, ,imua,i,im,imu
+CHND74110,imua,imua,i,i,i,imu,i,imu,i,iu,i,iua,i,i,i,i,i,imua,i, ,imua,i,im,imu
+LATED73100,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im
+LATED74100,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im,im
+SEDC45201/75201,im,im,u,im,imu,imu,im,imua,imua, ,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+SEDC45202/75202,im,im,u,im,imu,imu,im,imua,imua, ,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+SEDC45203/75203,im,im,u,im,imu,imu,im,imua,imua, ,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+SEDC45300/75300,iua,iua,iua,u, , , , ,i,imu,ua, , ,imu,u,imu, ,iua,iua,iua,u,i,iua,iua
+SEDC75900,iua,iu, ,iu,iu,iu, ,iua, , ,iu,iu, , ,iu,iua,iua,iua,u,iua, , ,iu, 
+SEDC76000,iua,iu, ,iu,iu,iu, ,iua, , ,iu,iu, , ,iu,iua,iua,iua,u,iua, , ,iu, 
+SEDC77211,im,im,u,im,imu,imu,im,imua,imua, ,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+SEDC77212,im,im,u,im,imu,imu,im,imua,imua, ,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+SEDC77213,im,im,u,im,imu,imu,im,imua,imua, ,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+CEDC70100,u, ,imua, ,i, ,i,iu, , , ,mu,u,imua,u,u, ,imua,im, ,imua,i, ,imua
+CEDC70200,u,i,imua, ,i,imu,i,imu, , ,iu,iu,u,imua,imu,imu,imu,imua,im, ,imua,imu,imua,imua
+CEDC70300/QSTA41480,imua,imu,imu, ,imu,imu,imua,imua,imua,im,ua,imua,imua,i,imua,imua,ua,imua,imua,ua,imu,imu,ua, 
+CEDC776,imua,imu,imu, ,imu, ,imua,imua,i,i,i,imua,imua,i,i,i,imu,imua,imua,ua,imu,imu,ua, 
+CEDC70450,u, ,imua, ,i, ,i,iu, , , ,mu,u,imua,u,u, ,imua,im, ,imua,i, ,imua
+CEDC70500,imu,imu,im, ,i, ,i, ,i,i, ,imua,imua,i,i,i,imu,imu,im,im,imu,imu,imu, 
+CEDC70600/QSTA41280,iua,imu,im, ,i, ,imu,imu,i,i, ,imu,imu,u,u,iua, ,imu,im, ,iua,ua,ua,u
+QSTA40180,i, ,imua, ,i, ,i,iu, , , ,i,u,imua,i,u, ,imua,im, ,imua,i, ,imua
+QSTA41080,u,i,imua, ,i,imu,i,imu, , ,iu,iu,u,imua,imu,imu,imu,imua,im, ,imua,imu,imua,imua
+CEDC72400/QSTAP41580,imu, ,im, ,imu,m,i,i,im,imu, ,imu, ,imua,imu,imu,imu,imu, ,imua,imua,imu,imua,imu
+Notes, , , , , , , , , , , , , , , , , , , , , , , , 
+ECC70300,ia,m,imu, ,i,mu,mu,i, , ,m,mu,m,imu,im,im,m,ia, , ,ia,i,im,ia
+ECC71500,imua,u,u,mu,ia,ua,mu,ia,m, ,ua,ua,ua,ua,imu,ia,ua,u,u,u,ia,i,ia,ia
+ECC72000,ia, ,imu, , ,i, ,imua,imua, ,i, , ,im,im,im,im,imu,u, ,imu,imu,imu,imu
+ECDD705,m, ,i, ,i, ,m,m, , , ,i, , ,ua,m, ,m,m, ,u,i,u, 
+ECC706,u,u,u, , ,mu, ,u,m,u, , ,m,ua,u,m, ,u, , ,u, , , 
+ECC70400, ,iua,ua,m,u, , ,ua, , , , , , ,m,m, ,u, , ,u, , , 
+ECC70800, , , , , , , , , , , , , , , , , , , , , , , , 
+ECC70900,i,i,m,m, , ,u, , , , ,u, ,m,m,m,m,u, ,u,u, , , 
+ECC71000,i, ,i, ,i, ,m,m, , , ,i, , ,ua,m, ,m,m, ,u,i,u, 
+ECC71100, ,ia,imua, ,ia,mua,ua,u, ,m, , ,m,m,mu,m,mu,u, ,u,u,u,u, 
+ECC714,im,m,mu,ia,i,i,i,i, , ,u,m,m,i,u,u,mua, , , , , , , 
+ECC71200, , ,mu, ,mu,u, , ,mu,mu, ,u, , , , , ,mu, ,u,mu, , , 
+ECC71600,ua,m,m,ua, ,i,m,i, ,ua,u,m,u,ua,ua,ua,ua,ua,u,ua,u,u,u,ua
+ECC71800,ua,m,m,ua, ,i,m,i, ,ua,u,m,u,ua,ua,ua,ua,ua,u, , , , , 
+ECC30100, , , , , , , , , , ,m, , ,i,i, , , , , ,i, , , 
+ECC30400, , , , ,i,i,u, , , ,u, , ,m, , , ,u, , ,u,u, , 
+ECC30500, , ,i, ,i,i,i,i, , , ,i, ,i,i,i,i,u, , ,ua, , , 
+ECC30200,imu, ,imu, ,imu, ,imu, , , , , , ,imu,imu,imu,imu,imu, , ,imu,imu,imu,imu
+ECC30600, , ,i, ,i, ,i,i, , , , , ,i,i,m, ,u, , ,i, , , 
+ECC30800, , ,i, ,i, ,i,i, , , , , ,i,m,m, ,i, , ,i,i, , 
+ECC30300, , ,i, ,i, ,i,u, , , ,i, ,i,u,u,u,u,u,u,u,u,u,u
+ECC31000, , ,i, ,i, ,i,u, , , ,i, ,i,u,u,u,u,u,u,u,u,u,u
+ECC31400,m,m,mu,ia,i,i,i,i, , ,u,m,m,i,u,u,u,u, , ,i,i, , 
+ECC40100,ua,m,m,ua, ,i,m,i, ,ua,u,m,u,ua,ua,ua,ua,ua,u,ua,u,u,u,ua
+SPEDE76850, , ,im, ,i, ,imu,u,i, , , , ,m,m, , ,mu, , , , ,m, 
+SPEDE76900, , ,m,m, , , ,i,m,u,i, , , ,i, , , , , , ,u,u,u
+SPEDE77000, ,i,u, ,i, , , , ,u, , , ,u, , , ,i, , , ,u, ,ua
+SPEDE77100,m,i,m, ,i,m,m,ua,m,u,ua,m,u,u,u,m,u,i, , ,u,ua,m,m
+SPEDE77200,imu,mu,im,imua,imua,imua,imua,imua,imua,imua,mu,im,imua,imu,imua,imu,mua,imu,ua,imu,imua,imua,imua,imua
+SPEDE77310, , ,i, ,i, , , ,i,imu, , , ,imu, , , , , , , , ,m, 
+SPEDE77320, , ,i, ,i, , , ,i,imu, , , ,imu, , , , , , , , ,m, 
+SPEDE77400,i, ,i, ,i,i,u,i,i,imu,u, , ,imu,imu,imu, , , ,i, , ,imu, 
+SPEDE77600,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77800,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77810,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77820,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77900,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77910,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77920,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE77951,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE79550,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+SPEDE79552,i, ,mu,u,i,i,imu,iu,i,iu,u,iu, ,i,iu,iu, , , , ,i, ,imu, 
+DANED76000,imu,mu,im, ,u,im,u,imu,im, ,imu,imu,i,u,m,imu,u,i,imu,ua,ua,u,imu, 
+DANED76200,im,im,im, ,im, ,imu,imu, ,imu,imu, , ,imu,imua,imua, ,im,im,imua,imua, ,imu,imu
+DANED76400,u,ua,ua, , , , , , , , , , , , , , , , , , , , , 
+DANED766,m,im,im,im,im, ,im,i, , ,imu,iu, ,imu,ua,ua,ua,ua, ,ua,ua,im,im,ua
+DANED76602,u,ua,ua, , , , , , , , , , , , , , , , , , , , , 
+DANED76605,u,ua,ua, , , , , , , , , , , , , , , , , , , , , 
+SEDCP45600,u,ua,ua, , , , , , , , , , , , , , , , , , , , , 
+MUSED67700, ,i,iu, ,i,i,i,iu,iu, , , , , , , , ,i, ,i,i, , , 
+MUSED67800,i,i,i,i,i,i,i,i,i, , , , , ,i,i,i,i,i,i,i, , , 
+ARTED71000,imua,i,imua,imua,imu,im,imu,imua,im,imu,i,im,imu,imu,im,imua,imu,iu,imua,imua,imua,i,imua,i
+ARTED71100,imua,imu,imua,i,imua,imu,i,imu, ,im,imu,imu,i,imua,imu,imua,imua,imu,i,imua,imua,imua,imua,imu
+ARTED71200,u,imu,imu,imu,imua,imua,imu,imua,i,i,i,imu,i,imu,imua,imua,imua,imu,imu,imua,imua,imu,imu,imu
+EDESL77500,iu,im,iua,u,i,i,ia,ia, , ,ia,iu,im,imu,iu,imu,imu,im,imu, ,imua,imu, , 
+EDESL791, ,im,imua, , , ,imua,imua,imua,imua, ,imua,imua, ,i,imua,imua,imua,imua,imua,imua,u,ia,imua
+EDESL79200,ua,m,ua,ua,ua,ua,m,u,m,i,ua,ua,ua,ua,u,ua,ua,u,ua,m,m,u,u,u
+EDESL78300,m, ,mua, ,i,i,mu,i, , ,m,m, ,i, ,m, ,mua, , ,mu,ua,u, 
+EDESL75200,imua,i,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua, ,imua,imua,imua,imua,imua, ,imua,imua,imua,imu, 
+EDESL75300,imua,i,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua, ,imua,imua,imua,imua,imua, ,imua,imua,imua,imu, 
+BILED70100,imu,imua,imua,i,im,imua,imua,imua,i,im,imu,imu,imu,im,imua,imua,imua,iu,imu, ,imua, ,imu,imu
+BILED77900,mu, , , ,ua,m,mu,m, , ,m,m, ,mu,m,m, ,u,m, ,u, , , 
+BILED78000,imu,imu,imu,im,imu, , ,imu,imua,u,imua,imua,iu, ,i,imua,imu,imu,im,imua,imua,imu,i,im
+BILED71100,iua,im,im, ,imu,iua,imu,imu, ,imu,iua, ,imu,imu, ,i, ,mu,ua, ,imua,iua, , 
+BILED71200,iua,im,im, ,imu,iua,imu,imu, ,imu,iua, ,imu,imu, ,i, ,mu,ua, ,imua,iua, , 
+BILED71300,iua,im,im, ,imu,iua,imu,imu, ,imu,iua, ,imu,imu, ,i, ,mu,ua, ,imua,iua, , 
+BILED76800,m, ,m,m,m,m,u,m, , ,mu,u,u,m,imu,m,m,m,m, ,m, ,m, 
+BILED76900,m, ,m,m,m,m,u,m, , ,mu,u,u,m,imu,m,m,m,m, ,m, ,m, 
+BILED77800,m, ,m,m,m,m,u,m, , ,mu,u,u,m,imu,m,m,m,m, ,m, ,m, 
+BILED78200,iua,imu,i, ,i,i,mu,mu, ,imu,i,i,u,mu, ,mu,imu,mu, ,imu,imu,iua,iua,mu
+BILED78300,iua,imu,i, ,i,i,mu,mu, ,imu,i,i,u,mu, ,mu,imu,mu, ,imu,imu,iua,iua,mu
+BILED78900,iua,imu,i, ,i,i,mu,mu, ,imu,i,i,u,mu, ,mu,imu,mu, ,imu,imu,iua,iua,mu
+BILED79000,iua,imu,i, ,i,i,mu,mu, ,imu,i,i,u,mu, ,mu,imu,mu, ,imu,imu,iua,iua,mu
+EDLIT73400, , , ,ua, , ,ua,ua, , , ,ua, , ,ua,ua,m,ua, , ,ua, , , 
+EDLIT75400, , , ,ua, , ,ua,ua, , , ,ua, , ,ua,ua,m,ua, , ,ua, , , 
+EDLIT73600, , , , ,ua, , ,ua, , , , , ,ua,ua,ua, ,ua, ,ua,ua,ua, ,ua
+EDLIT73700, , , , ,ua, , ,ua, , , , , ,ua,ua,ua, ,ua, ,ua,ua,ua, ,ua
+EDLIT73100,imu, ,i, ,i, ,u,m, ,u,u, , ,ua,u,ua,ua,ua,u, ,ua,ua, ,ua
+EDLIT7300,u,i, , ,i, ,u,i, , ,u,u, , ,u,ua,ua,ua,u,u,u,u, , 
+EDLIT75300,u,i, , ,i, ,u,i, , ,u,u, , ,u,ua,ua,ua,u,u,u,u, , 
+EDLIT75600,imu, ,i, ,i, ,u,m, ,u,u, , ,ua,u,ua,ua,ua,u, ,ua,ua, ,ua
+ECC704, ,iua,ua,m,u, , ,ua, , , , , , ,m,m, ,u, , ,u, , , 
+EDLIT73000,mua, ,imua, ,mua,mua,mua,mua,mua,ua,mua,ua,ua,mua,mua,mua,mua,mua, ,mua, ,imua,mua,im
+EDLIT73200, , ,ua, , , ,ua,i, , ,ua,ua,ua, ,ua,ua, ,ua,ua, ,ua, , ,ua
+EDLIT73500,imua,imu,imua,imua,imua,imu,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua,imua
+EDLIT73900, ,mu,mu, , , ,mu,mu,mu, ,u, ,u,mu,mu,mu,mu,u,mu, ,mu,m,mu,m
+EDLIT74000,imua,iua,imua,i,im,iu,m,imu,imu,imua,im,imu,i,imua,im,imua,im,imua,im, ,imua,i,imu, 
+EDLIT74500,iu,iu,imua,imu,iua, ,iua,imua,i,imu, , , ,imua,iu,iu,imu,u, , ,imua,imua,imua,imu
+EDLIT75500,u,u,ua,u,u,u,ua,ua, , ,ua,u,u,ua,u,u,u,ua,u, ,ua,u,u,ua
+SEDC711,im,u,ua,i,i,i,ua,i, , ,u,u,u,im,im,u,im,ua,u, ,ua,im,im,ua
+EDLIT74200, ,imu,ua, , , , , , , ,ua, , ,ua, ,m, ,ua,imu, ,ua, ,m,ua
+EDLIT75200, ,imu,ua, , , , , , , ,ua, , ,ua, ,m, ,ua,imu, ,ua, ,m,ua
+EDLIT75700, , , , ,ua, , ,ua, , , , , ,ua,ua,ua, ,ua, ,ua,ua,ua, ,ua
+SPED30800/70800,m,ua,mu,mu,u,m,u,mua,imu,u,mua,m,iu,iu,mu,m,iu,mua,m,m,m,m,m,iu
+SPED70100,i, ,u, ,i,m, , ,i, , , , ,u,u, , ,i, , , , , ,ua
+SPED70200,imu,imu,imu,imu,imu,imu,imu,imu, ,imu,imua,imu,imu,imu,imu,imu,imu,imu,imu,iua,iua,ua,ua,imua
+SPED70300,m,ua,mu,mu,u,m,u,u,iu,iu,u,mua,imu,u,mua,m,m,mua,m, ,m,m,m,iu
+SPED70550,imu,i,im,imua,imua,imua,imua,mua,mua,mua,imua,imua,m, ,imua,mua,imua,m, ,mu,mua,im,mua,mu
+SPED70600, ,i,ua,im,mua,ua,ua,ua,mu,mu,mu,m,u,i,mua,mua,mua,mua,mua,i,i, ,i,mu
+SPED70650,i,imu,imua,imua,imua,imua,imua,ua,m,m,i,iu,iu,imua,imua,imua,imua,imua,imu,imua,imua,imua,im,im
+SPED70700,imua,imua,imua,imua,imua,imua,imu,imu,imua,imua,imu,imua,imu,imua,imu,imu,imu,imua,imua,iua,imu,iu,imu,imu
+SPED74600, , , ,i,m,i,iu,m,mu,mu, ,m, , , , , , ,i,m, , ,mu,imu
+SPED79000, , ,i,iu,iu,m,iu,m,mu,mu, ,m, , , , , , ,i,m, , ,mu,imu
+SPED79100, , , ,ua,u, ,iu,m,mu,mu, , , , , , , , ,i,m, , ,mu,imua
+SPED79200, , , ,i,i, ,i,m,mu,mu, , , , , , , , ,i,m, , ,i,imu
+SPED79300, , , ,i, , ,i,m,mu,mu, , , , , , , , ,i,m, , ,m,mu
+SPED79500, , , ,iu,i, ,i,m,mu,mu, , , , , , , , ,i,m, , ,ua,imu
+SPED71451,imua,imu,imu,im,imu,m,i,imu,mu,mu, , , , , , , , ,i, , , , , 
+SPED74500,i,im,im,i,im,im,i,i,m,m, , , , , , , , , , , , , , 
+SPED74700,i,im,im,i,im,i, , ,mu,mu, , , , , , , , , , , , , , 
+SPED74854,imua,imu,imu,im,imu,m,i,imu,mu,mu, , , , , , , , , , , , , , 
+SPED74855,imua,imu,imu,im,imu,m,i,imu,mu,mu, , , , , , , , , , , , , , 
+SPED74857,imua,imu,imu,im,imu,m,i,imu,mu,mu, , , , , , , , , , , , , , 
+SPED72000, , , ,i,i,i, , , , , , , , , , , , , , , , , , 
+SPED72100, , , ,i,i,i, , , , , , , , , , , , , , , , , , 
+SPED72700, , , ,i,i,m, , , , , , , , , , , , , , , , , , 
+SPED73000, , , , , , , , , , , , , , , , , , , , , , , , 
+SPED73100, , , , , , , , , , , , , , , , , , , , , , , , 
+SPED73300, , , , , , , , , , , , , , , , , , , , , , , , 
+SPED72350,iua,iu,iua,imua,imua,imua,imua,imua,i,im,imua,iua,imua,imua,imua,imua,imua,imua,imua,imua,imua,im,imua,imua
+SPED72400,imua,i,imua,imu,imu,im,imua,im,im,imua,imua,imua, ,imua,imu,imua,imu,imu, ,im,imua,im,i,imua
+SPED724,ua,i,m, ,imu,mu,imua,imua,im,imua,imu,mua, ,imua,imu,imua,mua,imua,imu,imu,imua,imua,imua,imua
+SPED77100, , ,m,m,i, , ,imu,imu, ,imu, , , ,mu,imu,imu, , , ,imu, ,m,imu
+SPED77300, , ,m,m, , , , , , ,imu, , ,mu,mu, , ,imu, ,imu, , , , 
+SPED77600, , ,m,m, ,imu,i, , , ,imu, , ,mu,mu, , ,imu, , ,iu, ,m,imu
+SPED78000, , ,m,m,i, , , , , , , , ,im,mu, , ,imu, , , , , ,imu
+SPED781,im, ,imu,im,i,imu,imua,imua,im,im,imua,imua,imu,imu,imua,imu,imu,imua,imu,imu,imu,imu,i,imua
+SPED781.5,im, ,imu,im,i,imu,imua,imua,im,im,imua,imua,imu,imu,imua,imu,imu,imua,imu,imu,imu,imu,i,imua
+SPED78100, , ,i,i,i,i,imu,imu,u,ua, ,mu,mu,mu,mu,mu,m,mu,m, ,mu, ,m,m
+SPED75000, , ,ua, , , ,u, ,i,i, , , ,ua,u, , , , , , ,ua, , 
+SPED75100,imua,iua,imua, , ,imua, , , ,iua, , , ,i, , , , , , , ,imua,imua,imua
+SPED752,im,im,im,imu,imu,imu,im,im,im,im,im,im,im,im,im,im,im,imu,imu,iu,iu,i,i,i
+SPED75255,imua,imua,imua,imua,imua,imua,imua,imua,imu,im,imua,iu,imua,imua,iu,imu,imua,im,imu,imu,imu,imu,imu,imu
+SPED77500,imu,imu,imu, ,imu, , ,mu,mu,mu, , ,mu,mu,imu, , , ,i, ,i, ,imu,imu
+SPED77550,imu,imu,imu, ,imu, , ,mu,mu,mu, , ,mu,mu,imu, , , ,i, ,i, ,imu,imu
+SPED77200,mua,mua,mua,m,i,mua,mua,mua,imua,iu,u,imua, ,imua,imua,imua,imua,iu,mua,im,im,iu,imua,imua
+SPED77400,mua,mua,mua,m,i,mua,mua,mua,imua,iu,u,imua, ,imua,imua,imua,imua,iu,mua,im,im,iu,imua,imua
+SPED77700,mua,mua,mua,m,i,mua,mua,mua,imua,iu,u,imua, ,imua,imua,imua,imua,iu,mua,im,im,iu,imua,imua
+SPED78200,imua, ,im,imu, ,imu,imu,imu,imu,imu,imua,imua, ,imu,imu,imu,imu,imua,imu, ,imu, , ,imua
+SPED75500, ,i,i, , , ,mu, , , , , ,imu,imu,iua, , ,mu, ,mu, , ,mu, 
+SPED75600, ,i,i, , , ,mu, ,mu, , , ,imu,imu,iua, , ,mu, ,mu, , , , 
+SPED75300, ,i,i, , , ,mu, , , , , ,imu,imu,iua, , ,mu, ,mu, , , , 
+SPED75400, ,i,i, , , , , , , , , ,imu,imu,iua, , ,mu,mu,mu, , ,mu,mu
+SPED786, , , , ,i,m, , , , ,u,u, , ,u, ,m,i, , ,i,u, , 
+SPED78652,u,u,u, ,u,u, ,u, ,m,u, , , ,u,u,u,m,u,u,mu, ,u, 
+SPED78651,mu,m, ,mu,mu,mu,mu,mu, , ,mu,mu,m,mu,mu,mu,mu,mu,m, ,mu,mu,mu, 
+SPED78900, , , , , , , , , , , , , , , , , , , , , , , , 

@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+ <!-- don't crawl --> 
+
+<meta name="robots" content="noindex">
+
+
+<!-- socket.io -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+<script>
+if (window.location.host.includes("localhost")){
+  let socket = io.connect(':5000');
+  socket.on('reload', function(data) {location.reload(true);});
+}
+</script>
+
+<!-- end socket.io -->
+
+
+
+<!-- begin CSS -->
+<link rel="stylesheet" href="stylesheet.css">
+<!-- end CSS -->
+
+
+<link rel="icon" href="https://education.hunter.cuny.edu/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Curriculum Maps In-Depth</title>
+
+<style type="text/css">
+  
+.nice-code-pre{
+  overflow-x: scroll;
+  background-color: var(--faint-hunter-purple);
+  font-family: monospace;
+  border: 1px solid var(--hunter-purple);
+  border-radius: 0.25rem;
+  line-height: 1.1rem;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  max-height: 20rem;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<!-- lil hunter logo -->
+
+<div id="toptoptop">
+  <img src='https://s26445.pcdn.co/wp-content/themes/soe/assets/images/hunter_logo_white.png.webp?ver=1718269122' />
+</div>
+
+
+
+<!-- nav pane -->
+
+<div id="sidenav">
+  <details class="jumplist">
+    <summary>Collecting & Cleaning Data</summary>
+    <a href="#CourseSequences" class='jumplist-child'>Course Sequences</a>
+    <a href="#IndicatorData" class='jumplist-child'>Indicator Data</a>
+  </details>
+  <details class="jumplist">
+    <summary>Displaying Data</summary>
+    <a href="#Courses" class="jumplist-child">Courses</a>
+    <a href="#Sequences" class="jumplist-child">Sequences</a>
+    <a href="#HTML" class="jumplist-child">HTML</a>
+  </details>
+
+</div> <!-- end sidenav -->
+
+
+
+
+<div id="sequence-container">
+
+
+
+<!-- begin page -->
+<h1>Technical Information: Hunter School of Education Teacher Technology Learning Curriculum Maps</h1>
+<p>You can right click the page and click "Inspect" to see the HTML as it was generated, or right-click on the page and click "View Source" to view the raw page (before generation of all of the reports).</p>
+
+<h4><a href="/hunter/soe-iste-maps-2024/">&lt;&lt; Back to Curriculum Maps</a></h4>
+
+<h2>Collecting Data</h2>
+<p>A curriculum mapping project requires at least two sets of data:</p>
+<ol>
+  <li>The course sequences of all of the programs</li>
+  <li>Coverage of learning objectives by each course</li>
+</ol>
+<h4 id="CourseSequences">Course Sequences</h4>
+<p>
+If you already have a clean dataset of all of your course sequences handy, then you are halfway there. We did not, so I wrote a web crawler using the BeautifulSoup Python library that facilitates parsing HTML. Here is the function that I used on each website that contained a course sequence to extract all possible classes that we wanted present in the course sequences. I had to go through each string of text in the whole website, because there are too many weird scenarios of classes being specified several at a time, in paragraphs, list elements, and as headers. Once all of the classes were compiled, duplicates were removed. 
+</p>
+<pre class="nice-code-pre">
+depts = "SPED,CEDC,SEDC,SEDF,EDLIT,ARTED"
+depts += ",EDESL,EDUC,LING,BILED,CEDF,MUSED"
+depts += ",ECC,HED,DANED,LATED,CHND,QSTA,QSTB,QSTP"
+depts += ",ECF"
+depts = depts.split(",")
+
+def get_sequence_from(link):
+  page = check_cache_or_get(link)
+  soup = BeautifulSoup(page, features='html.parser')
+  text = soup.get_text()
+  to_return = []
+  for a in text.split("\n"): 
+    a = a.strip()
+    if any(word in a for word in depts):
+      #  s = f"{"".join(a.find_all(string=True, recursive=True))}"
+      # need to get where the class is mentioned 
+      for sch in depts: 
+        index = a.find(sch)
+        if index > -1:
+          # if we find a school code, take the first two words after it
+          school_and_code = a[index:].split(" ")[:2]
+          if len(school_and_code) == 2:
+            school, code = school_and_code
+            #s = a.strip()
+            #print(f'{school},{code}', end="")
+            #print(all(n in [str(i) for i in range(10)] for n in code))
+            if all(n in [str(i) for i in range(10)] for n in code) and any(d in school for d in depts):
+              #input()
+              while len(code) < 5: code += "0"
+              to_add = " ".join([school, code])
+              if to_add not in to_return: to_return.append(to_add)
+  return (link, to_return)
+</pre>
+<p>The entirety of the code can be seen on GitHub - I include this here to show that the crawling is essentially composed of string operations. </p>
+<p>
+  Important in webcrawling is to cache the websites that you visit - this allows you to iterate quickly on your code and re-run often without hitting the server. If you wrap your GET code in a simple function like this that implements a local cache of websites, you don't have to wait for each request every time you run your code:
+</p>
+<pre class="nice-code-pre">
+import os
+import requests
+from time import sleep
+import hashlib
+
+# Function to generate MD5 hash
+def generate_md5_hash(input_string):
+    # Create an MD5 hash object
+    md5_hash = hashlib.md5()
+    
+    # Update the hash object with the bytes of the string
+    md5_hash.update(input_string.encode('utf-8'))
+    
+    # Retrieve the hexadecimal representation of the hash
+    return md5_hash.hexdigest()
+
+
+# so that i request each site exactly once
+def check_cache_or_get(url):
+  hashy = str(generate_md5_hash(url))
+  if os.path.isfile(f'cached-sequence-pages/{hashy}'):
+    #print(f"using cached version of {url}")
+    pass
+  else:
+    sleep(1)
+    print(f'fetching {url}')
+    page = requests.get(url)
+    with open(f'cached-sequence-pages/{hashy}', 'w') as file:
+      file.write(page.text)
+      file.close()
+  return open(f'cached-sequence-pages/{hashy}', 'r')
+</pre>
+<h4 id="IndicatorData">Indicator Data</h4>
+<p>
+  The indicator data itself can be collected through a Google Form, a spreadsheet, an email, etc. There is no clear form for this data to take. Since there are 24 ISTE indicators, and each indicator can be addressed in four different ways (introduce, model, use, assess), we can set up a very simple CSV output to represent the indicator data. The presence of a letter indicates the presence of that teaching mode. Here is a sample:
+</p>
+<pre class="nice-code-pre">
+ECC70900,i,i,m,m, , ,u, , , , ,u, ,m,m,m,m,u, ,u,u, , , 
+ECC71000,i, ,i, ,i, ,m,m, , , ,i, , ,ua,m, ,m,m, ,u,i,u, 
+ECC71100, ,ia,imua, ,ia,mua,ua,u, ,m, , ,m,m,mu,m,mu,u, ,u,u,u,u, 
+ECC714,im,m,mu,ia,i,i,i,i, , ,u,m,m,i,u,u,mua, , , , , , , 
+ECC71200, , ,mu, ,mu,u, , ,mu,mu, ,u, , , , , ,mu, ,u,mu, , , 
+ECC71600,ua,m,m,ua, ,i,m,i, ,ua,u,m,u,ua,ua,ua,ua,ua,u,ua,u,u,u,ua
+ECC71800,ua,m,m,ua, ,i,m,i, ,ua,u,m,u,ua,ua,ua,ua,ua,u, , , , , 
+ECC30100, , , , , , , , , , ,m, , ,i,i, , , , , ,i, , ,
+</pre>
+<p>I used pandas to parse through the spreadsheet created by a survery to create this output.</p>
+<h2 id="DisplayingData">Displaying Data</h2>
+<h4 id="Courses">Courses</h4>
+<p>To display the data correctly, data structures that represent the course sequences need to be composed of data structures that represent the indicator coverage of individual courses. The constructor for the Course object is below:</p>
+<pre class="nice-code-pre">
+class Course {
+  constructor(school, code, dictOfIndicators){
+    this.school = school
+    this.code = code
+    this.name = `${school} ${code}`
+    this.ArrayOfISTEIndicators = Array()
+    this.ArrayOfISTEIndicators.push(dictOfIndicators)
+  }
+}
+</pre>
+<p>As you can see, Courses keep track of their own indicators. When multiple surveys have been completed for a course, then the surveys are kept track of in an array of indicator coverages. The curriculum maps begin taking shape when the Course object is made to belong to the Sequence object.</p>
+<h4 id="Sequences">Sequences</h4>
+<p>Sequences keep track of an array of their courses. The sequence's array of courses is in the correct chronological order. Below is the constructor for the Sequence object.</p>
+<pre class="nice-code-pre">
+class Sequence{
+  constructor(name, link, totalCourses){
+    this.name = name
+    this.link = link
+    // array of COURSE objects
+    this.courses = Array()
+    this.totalCourses = totalCourses
+    this.IMUARecord = {}
+    this.fullyLoaded = false
+    this.element = document.createElement('div')
+    this.noData = false
+  }
+}
+</pre>
+<p>The IMUARecord dictionary exists to get the overview of a sequence - it represents any and all times that an indicator has an I, M, U or A listed in any course in the sequence.</p>
+<p>Once these two objects exist, and you create a Sequence object for each sequence and a Course object for each course, and store the objects in some data structure, you can move onto representing the objects with HTML.</p>
+<h4>HTML</h4>
+<p>A sample curriculum map is essentially a horizontally scrolling list of tables. Because of the CSS formatting and individual rows and cells, to include one is to include way too much generated HTML. The important part is to have the objects generate HTML themselves. Below is a snippet of how an individual course creates its table of indicators:</p>
+<pre class='nice-code-pre'>
+const getIndicatorsAsHTML = (indicatorArray) => {
+  // ["6c", "im"]
+  const container = document.createElement('div')
+  container.classList.add('y-indicators-x-classes-indicator')
+
+  // title
+  const first = document.createElement('div')
+  first.classList.add('y-indicators-x-classes-indicator-child')
+  const strong = document.createElement('strong')
+  strong.appendChild(document.createTextNode(indicatorArray[0]))
+  first.appendChild(strong)
+
+  container.appendChild(first)
+
+
+  // colors and letters for what to append
+  const IMUA = "imua"
+  const colors = ["#9BEBDC", "#F0E28D", "#F0BF7F", "#ADF092"]
+
+  for (let i = 0; i < 4; i++){
+    const tempI = IMUA.charAt(i)
+    const toAdd = document.createElement('div')
+    toAdd.classList.add('y-indicators-x-classes-indicator-child')
+
+    if (indicatorArray[1].includes(tempI)){
+      toAdd.appendChild(document.createTextNode(tempI))
+      toAdd.style.backgroundColor = colors[i]
+    } else {
+      toAdd.appendChild(document.createTextNode(" "))
+    }
+    container.appendChild(toAdd)
+  }
+
+  return container
+}
+
+getYIndicatorsXClasses(){
+  // if there are multiple courses
+  let megaContainer = document.createElement('div')
+  megaContainer.classList.add('y-indicators-x-classes-megacontainer')
+
+  this.ArrayOfISTEIndicators.forEach(dict => {
+    // container
+    let container = document.createElement('div')
+    container.classList.add('y-indicators-x-classes-container')
+
+    const title = document.createElement('p')
+    title.appendChild(document.createTextNode(this.name))
+    container.appendChild(title)
+
+    // each indicator
+    for (const indicator of Object.entries(dict)){
+      //console.log(this.name, indicator)
+      container.appendChild(getIndicatorsAsHTML(indicator))
+    }
+    megaContainer.appendChild(container)
+  })
+
+  return megaContainer
+}
+</pre>
+<p style="margin-bottom: 10rem;">By breaking up the code into small functions, you can really quickly end up with code that writes a lot of HTML for you. The heavy lifting is done by adding CSS classes to programmatically created elements and for loops.</p>
+
+</div> <!-- sequence container -->
+<script>
+  
+
+
+const sidenav = document.getElementById('sidenav')
+const toptoptop = document.getElementById('toptoptop')
+
+const fixSidenavScroll = () => {
+  //console.log(window.scrollY, toptoptop.offsetHeight);
+  if (window.scrollY <= toptoptop.clientHeight){
+    // have the sticky behavior kick in
+    //const difference = window.scrollY - OGsidenavOffsetTop
+    //sidenav.style.marginTop = `${difference}px`
+    toptoptop.style.top = `${- window.scrollY}px`
+    sidenav.style.top = `${- window.scrollY}px`
+  } else {
+    toptoptop.style.top = `${- toptoptop.clientHeight}px`
+    sidenav.style.top = `${- toptoptop.clientHeight}px`
+
+  }
+}
+
+window.addEventListener("scroll", fixSidenavScroll)
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+
+/* import Lato and purple for Hunter styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root{
+  --hunter-purple: #5F259F;
+  --transparent-hunter-purple: rgba(95,37,159,0.1);
+  --faint-hunter-purple: rgba(95,37,159,0.05);
+  --sidenav-width: 250px;
+  --sidenav-padding-left: 50px;
+  --sequence-container-side-padding: 2rem;
+  font-size: 18px;
+}
+
+/*  how to use css custom variables
+
+details {
+  background-color: var(--main-bg-color);
+}
+
+*/
+
+
+
+details > summary > h2, h3, h4, h5{
+  display: inline;
+}
+
+#sequence-container > details > details[open] > summary{
+  font-weight: bold;
+}
+
+video{
+  margin: 1rem 0rem;
+  width: 800px;
+  box-shadow: 0px 0px 10px var(--hunter-purple);
+}
+
+#sequence-container > details {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#faqs > details{
+  margin: 0.5rem 0rem 0.5rem 1rem;
+}
+
+#faqs > details > p, video {
+  margin: 0.5rem 0rem 0.5rem 1rem;
+}
+
+#faqs > summary {
+  margin-bottom: 0.5rem;
+}
+
+
+body{
+  padding: 0rem;
+  font-family: 'Lato';
+  margin: 0px;
+  overflow-x: hidden;
+  text-align: left;
+}
+
+h2, h3, h4, h5{
+  margin-bottom: 0.5rem;
+}
+
+b{
+  font-weight: 500;
+}
+
+p, ol{
+  font-weight: 300;
+  line-height: 1.65rem;
+  font-size: 1rem;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+a{
+  color: var(--hunter-purple);
+}
+
+#container{
+}
+
+/* tooltip */
+#tooltip{
+  position: absolute;
+  width: fit-content;
+  max-width: 300px;
+  line-height: 1.1;
+  font-size: 14px;
+  padding: 1rem;
+  background-color: white;
+  border: 2px solid var(--hunter-purple);
+  border-radius: 0.5rem;
+  z-index: 10;
+  display: none;
+}
+
+.indicator-hover{
+  text-decoration: underline;
+  text-decoration-color: var(--hunter-purple);
+  text-decoration-style: wavy;
+  cursor: pointer;
+}
+
+/* the jumplist */
+
+#sidenav{
+  border-right: 2px dotted var(--hunter-purple);
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  width: var(--sidenav-width);
+  padding-left: var(--sidenav-padding-left);
+  padding-top: 4rem;
+}
+
+.jumplist{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0rem;  max-height: 70vh;
+}
+
+#sidenav > details{
+  margin: 1rem 0rem;
+  position: relative;
+}
+
+#sidenav > details[open]{
+  overflow-y: scroll;
+}
+
+#sidenav > details > summary{
+  cursor: pointer;
+  position: sticky;
+  background-color: white;
+  padding-bottom: 0.5rem;
+  top: 0px;
+}
+
+summary:hover{
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.jumplist-child{
+  flex: 0 0 auto;
+  padding: 0.3rem;
+  width: fit-content;
+  font-size: 1rem;
+}
+
+/* "Sequences" */
+#sidenav > 
+:not(.jumplist){
+  font-size: 1.5rem;
+  font-weight: 600;
+  flex: 0 0;
+  padding: 0.3rem 0rem 1rem 0.5rem;
+  transition: 0.1s linear all;
+}
+
+
+a.jumplist-child{
+  text-decoration: none;
+  color: var(--hunter-purple);
+}
+
+#etc-jumplist{
+  visibility: hidden;
+}
+
+/* the container of ALL sequences */
+
+#sequence-container{
+  margin-top: 2rem;
+  margin-left: calc(var(--sidenav-width) + var(--sidenav-padding-left));
+  padding: 0px var(--sequence-container-side-padding);
+  height: fit-content;
+  display: inline-block;
+  max-width: calc(100% - var(--sidenav-width) + var(--sidenav-padding-left));
+}
+
+/* each sequence */
+
+h3{
+  margin: 0px;
+}
+
+.sequence{
+  height: fit-content;
+  text-align: center;
+  margin: 1rem 0rem;
+  border: 1px solid var(--hunter-purple);
+  padding: 0em 1em;
+  background-color: white;
+}
+
+.sequence > summary{
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  line-height: 1.6;
+}
+
+details:not([open]).sequence:hover {
+  background-color: var(--transparent-hunter-purple);
+}
+
+details{
+  transition: all linear 0.1s;
+}
+
+.sequence > details{
+  margin-bottom: 1rem;}
+
+.summary {
+  text-align: left;
+}
+
+.summary > p{
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+summary, legend{
+  text-align: left;
+}
+
+details.indicator-report[open]>summary, 
+details.course-report[open]>summary{
+  /* this is for the "tab" look*/
+  box-shadow: 0px 1px 0px white;
+  position: relative;
+  z-index: 4;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0px 0px;
+}
+
+details.indicator-report > summary, 
+details.course-report > summary{
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid var(--hunter-purple);
+  border-radius: 0.5rem;
+  width: fit-content;
+  transition: all 0.1s ease;
+  font-weight: 600;
+}
+
+details.indicator-report > p {
+  border: 1px solid var(--hunter-purple);
+  padding: 1rem 0rem 0rem 1rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+th.y-indicators-x-classes-indicator{
+  height: 1.4rem;
+  margin: auto;
+}
+
+summary:hover{
+  text-decoration: underline;
+}
+
+details > .scroller-container{
+  border: 1px solid var(--hunter-purple);
+  border-radius: 0rem 0.25rem 0.25rem 0.25rem;
+}
+
+ul{
+  padding-left: 1em;
+}
+
+.indicator-see-classes{
+  display: inline-block ;
+}
+
+.indicator-see-classes > summary{
+  display: inline-block;
+}
+
+.indicator-see-classes > ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+
+/* this has huge width to scroll */
+.scroller-container{
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  max-width: 55vw;
+  overflow-x: scroll;
+  gap: 0.5rem;
+  position: relative;
+
+  /* for pdf */
+  /* flex-wrap: wrap; */
+}
+
+
+/* CSS FOR SEQUENCE REPORT BY INDICATOR */
+
+.sequence-report-container{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.sequence-report-row{
+  flex: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
+.sequence-report-row:nth-child(1) > .sequence-report-cell{
+  cursor: pointer;
+}
+
+.sequence-report-cell{
+  flex: 1 0 90px;
+  width: 180px;
+  border-collapse: collapse;
+  border: 1px solid gray;
+  line-height: 1.8;
+}
+
+.sequence-report-cell:nth-child(1){
+  width: 30px;
+  flex: 1 0 30px;
+}
+
+.no-cell-color > .sequence-report-row > .sequence-report-cell{
+  background-color: white;
+}
+
+.sequence > svg{
+  margin: 1em 0em;
+}
+
+
+/* CSS FOR CURRICULUM MAP */
+
+/* the mega container for a class */
+
+.y-indicators-x-classes-megacontainer{
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.y-indicators-x-classes-container{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  border: 1px solid black;
+  padding: 2px;
+}
+
+.y-indicators-x-classes-container > p {
+  padding: 0.5rem 0rem;
+  margin: 0px;
+}
+
+/* The row containing 6c: I M */
+
+.y-indicators-x-classes-indicator{
+  flex: auto;
+  display: flex;
+  border-collapse: collapse;
+}
+
+/* the I, M, U or A */
+.y-indicators-x-classes-indicator-child{
+  flex: auto;
+  width: 1.3rem;
+  height: 1.3rem;
+  line-height: 1.3;
+  border-collapse: collapse;
+  border: 1px solid lightgray;
+}
+
+.y-indicators-x-classes-indicator-child:nth-child(1){
+  width: 1.5rem;
+}
+
+
+#back-to-top{
+  top: 0px;
+  right: 1rem;
+  width: fit-content;
+  background-color: white;
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 0px 0px 0.25rem 0.25rem;
+  padding: 0.25rem;
+  z-index: 1000;
+  position: fixed;
+}
+
+#toptoptop{
+  background-color: var(--hunter-purple);
+  padding: 0.5rem;
+  padding-left: 50px;
+  font-weight: 800;
+  color: white;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+}
+
+/* scrollbar background white */
+::-webkit-scrollbar-track {
+    background-color: white; /* Background of the scrollbar track */
+}
+
+scrollbar-track{
+  background-color: white;
+}

@@ -1,0 +1,1895 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+ <!-- don't crawl --> 
+
+<meta name=”robots” content=”noindex”>
+
+
+<!-- socket.io -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+<script>
+if (window.location.host.includes("localhost")){
+  let socket = io.connect(':5000');
+  socket.on('reload', function(data) {location.reload(true);});
+}
+</script>
+
+<!-- end socket.io -->
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Curriculum Maps</title>
+
+
+
+<link rel="icon" href="https://education.hunter.cuny.edu/favicon.ico">
+
+<!-- begin CSS -->
+<link rel="stylesheet" href="stylesheet.css">
+<!-- end CSS -->
+
+
+</head>
+<body>
+<a id="back-to-top" href="#top">
+  Jump to Top
+</a>
+
+
+<!-- lil hunter logo -->
+
+<div id="toptoptop">
+  <img alt="hunter logo" src='https://s26445.pcdn.co/wp-content/themes/soe/assets/images/hunter_logo_white.png.webp?ver=1718269122' />
+</div>
+
+<!--
+<details id="jumplist-container">
+  <summary>Jump To</summary>
+  <div id="jumplist">
+    
+  </div>
+</details>
+
+-->
+
+<div id="container">
+
+<!-- nav pane -->
+
+<nav id="sidenav" role="navigation">
+
+  <div>Programs</div>
+  <details id="overall-jumplist" class="jumplist">
+    <summary><a>Overall Reports</a></summary>
+  </details>
+  <details id="gened-jumplist" class="jumplist">
+    <summary><a>General Education</a></summary>
+  </details>
+  <details id="sped-jumplist" class="jumplist">
+    <summary><a>Special Education</a></summary>
+  </details>
+
+
+  <details id="etc-jumplist" class="jumplist">
+    <summary>Leadership & Counseling</summary>
+  </details>
+
+</nav> <!-- end sidenav -->
+
+<!-- the sequences -->
+
+<div id="sequence-container">
+
+
+
+<!-- begin page -->
+<h1>Hunter School of Education Teacher Technology Learning Curriculum Maps</h1>
+
+  <pre style="display:none; width:90%; white-space: pre-wrap;background-color: lightgoldenrodyellow;padding: 1rem;"
+>
+<s>open links in new tab</s>
+make frozen page work better
+
+- setup python pipeline for easy updates
+- spit out indicators, sequences, and standards in js friendly json strings
+
+</pre>
+
+<details id='faqs' open>
+  <summary><h2>Usage and FAQs</h2></summary>
+
+  <h4>How Do I See...</h4>
+
+  <details>
+    <summary>... which topics are taught the most in a program?</summary>
+    <p>
+      Click on the program that you would like to explore. <br>
+      Click on the "Indicators By Frequency and Teaching Mode" section. <br>
+      Click on any table header to sort the table and see the topics that are taught the most at the top.<br>
+    </p>
+    <video autoplay muted loop>
+        <source src="most-covered.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+  <details>
+    <summary>... if any topics are not taught in a program?</summary>
+    <p>
+      Click on the program that you would like to explore. <br>
+      Click on the "Indicators By Frequency and Teaching Mode" section. <br>
+      Click on any table header twice to sort the table in descending order and see the topics that are not taught at the top.<br>
+    </p>
+    <video autoplay muted loop>
+        <source src="not-taught.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+  <details>
+    <summary>... the coverage of a topic over the course of a program?</summary>
+    <p>
+      Click on the program that you would like to explore. <br>
+      Click on the "Indicators By Sequence and Teaching Mode" section. <br>
+      Scroll through the offered classes - they are in chronological order.
+    </p>
+    <video autoplay muted loop>
+        <source src="coverage-across-program.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+  <details>
+    <summary>... which classes in a program teach a topic?</summary>
+    <p>
+      Click on the program that you would like to explore. <br>
+      Click on the "Indicators By Frequency and Teaching Mode" section. <br>
+      Click on a cell to see which courses compose that cell count.
+    </p>
+    <video autoplay muted loop>
+        <source src="which-classes.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+  <details>
+    <summary>... which topics in a program are taught in a complete learning arc (introduced, modeled, practiced, and assessed)?</summary>
+    <p>
+      Click on the program that you would like to explore. <br>
+      Click on the course report.<br>
+      Scroll to the <b>Learning Arcs</b> section.</p>
+    </p>
+    <video autoplay muted loop>
+        <source src="learning-arcs.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+  <details>
+    <summary>... which topics are taught more than 5 times in a program?</summary>
+    <p>
+      Click on the program that you would like to explore. <br>
+      Go to the course report and scroll to the "more than 5 times" section.</p>
+    </p>
+    <video autoplay muted loop>
+        <source src="35-times.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+  <details>
+    <summary>... a program's report without scrolling down this huge page?</summary>
+    <p>
+      Use the sidebar navigation panel and the "jump to top" button at the top to quickly navigate the page. 
+    </p>
+    <video autoplay muted loop>
+        <source src="navigation.mov" type="video/mp4">
+          Your browser does not support videos.
+      </video>
+  </details>
+
+    <details>
+    <summary>... how we made these dynamic curriculum maps?</summary>
+    <p>
+      Click <a href="https://agileteacherlab.org/hunter/soe-iste-maps-2024/how-to-curriculum-map.html">here</a> to learn more about how we made this website.
+    </p>
+  </details>
+
+</details>
+
+<details>
+<summary><h2>About this Project</h2></summary>
+<p>
+Dynamic curriculum maps enable  faculty to visualize how technology learning takes place throughout the course sequence of a teacher education program. Beginning in spring 2024, faculty completed a Qualtrics  
+<a href="https://cunyhunter.co1.qualtrics.com/jfe/form/SV_6ziQf6d7gg4DAWO">survey</a> 
+using the 
+<a href="https://iste.org/standards/educators">
+International Society for Technology in Education (ISTE) standards</a> 
+to reflect on how teacher-candidates learned about and used technology within each course. The seven ISTE standards for Educators identify how technology may be used to accomplish different teacher roles including: learner, leader, citizen, collaborator, designer, facilitator, analyst. Faculty described specifically how the 24 ISTE standard indicators aligned to related standards were taught within each course. Faculty considered both specific indicators and the teaching mode including how technology learning was introduced, modeled, used, and assessed or critiqued within each course.
+</p>
+
+<h4>How It Works</h4>
+<p>
+The data from the faculty completed surveys were cleaned with Python. The course sequences were taken from the 
+<a href="https://education.hunter.cuny.edu/academics/graduate-programs/">
+Hunter SOE Program Page</a>
+and were used to organize the course survey results into sequences of courses by programs. The web reports are created using Javascript and Python. </p>
+<p>
+<a href="how-to-curriculum-map.html">Learn more</a> about how we made this website.
+
+</p>
+<h4>Keeping Data Current</h4>
+<p>
+These dynamic curriculum maps enable faculty to see how technology is currently being used and taught within each program and in all teacher education programs at Hunter College. Faculty can update the spreadsheet for their program at any time and the curriculum maps will be automatically updated every 24 hours. At this time, not all courses have completed the survey of ISTE standards. Only the data that has been collected is shown. As a result, some metrics may appear inflated or disproportionate.
+</p>
+</details>
+<details>
+<summary><h2>Curriculum Map Information</h2></summary>
+<p>
+Reports were created for the entire Hunter School of Education, as well as all courses contained within the General Education and Special Education. Foundations courses are embedded within all General and Special Education programs. These reports reflect only the information collected from teacher education faculty through the ISTE standard faculty survey taken during spring 2024. All programs and courses may not appear in these report.
+</p>
+<p>
+There are two data tables and a bar graph visualization for each program sequence listed on the <a href="https://education.hunter.cuny.edu/">Hunter School of Education</a> during spring 2024. In addition to reports for each reported program, summary reports aggregate data for the whole school or education and for general and special education programs.
+</p>
+<h4>Navigation</h4>
+<p>
+  Click on a program in the navigation panel on the left to scroll to the report. <br>Click on the "Jump to Top" button in the top right corner to return to the top of the page. <br>
+  Click on any cell in any table to show a tooltip with a description or the indicator being referenced.
+</p>
+<h3>Table 1: ISTE Standard Indicators by Frequency and Teaching Mode</h3>
+<p>
+
+  <b>ISTE Standard Indicator Frequency Report</b> provides an overview of the frequency ISTE standard indicators are taught across the program’s courses sequence. </p>
+
+<h4>Frequency Taught</h4>
+<p>
+  <span style="background-color: palegreen">Green</span> - 
+  3-5 times<br>
+  <span style="background-color:pink">Red</span> - 
+  1-2 times<br>
+  <span style="background-color:#fcff82">Yellow</span> - 
+  more than 5 times<br>
+</p>
+<h4>Teaching Mode (Columns)</h4>
+<p>
+  <b>Introduce (I)</b> - 
+  Faculty introduce this indicator through discussions, readings, and/or activities.<br>
+  <b>Model (M)</b> - 
+  Faculty model this indicator through their teaching of course content.<br>
+  <b>Use (U)</b> - 
+  Teacher-candidates learn course content through enacting or doing this indicator.<br>
+  <b>Assess (A)</b> - 
+  Course assessments enable faculty and teacher candidates to measure their competency with this indicator.
+</p>
+
+<h4>Learning Arc</h4>
+<p>Learning arcs occur when ISTE standards are introduced, modeled, practiced, and assessed at least once in the program.</p>
+<h4>Explore the Frequency Report</h4>
+<p>
+Click on any indicator coverage percentage to see what courses teach that indicator. <br>
+Click on any header of the indicator report table to sort the table according to that measure.<br>
+Click on any cell in any table to see a tooltip showing you the standard that is being referenced by that cell. Click anywhere again to hide the tooltip.
+</p>
+<h4>Why is program frequency and teaching mode important?</h4>
+<p>
+  Cognitive research suggests that learning requires deliberate practice (Ericsson & Lehman, 1996) and deeper-processing strategies that are effortful and spaced out (Brown et al., 2014). Therefore, indicators should appear multiple times spaced out over a course sequence. Indicators that appear infrequently may not enough opportunities for deeper learning. Indicators that appear very often may suggest a strong relationship with faculty values, a program signature pedagogy, or the indicator may be taking too much time, leaving less time for other indicators. Learning arcs are important because these show how learning related to each indicators takes place.
+
+</p>
+<h3>Table 2: ISTE Standard Indicators by Course Sequence and Teaching Mode</h3>
+<p>
+  This table displays a roughly chronological view of the course sequence from left-to-right. To view all of the courses in the sequence, you can scroll to the left or right using the scroll bar that appears in the sequence box. The tables show the ISTE indicators taught in each course and the teaching mode. The course sequence was taken from the program website. Course sequences are imperfect due to changes and students taking courses out of sequence. These maps display one possible course sequence that may launch discussions.
+</p>
+
+<h4>Why is course sequence and teaching mode important?</h4>
+<p>Examining teaching modes throughout a course sequence by indicator allows faculty to see how technology learning is introduced, modeled, used by teacher-candidates for learning, and assessed. This report provides a quantitative simulation of the planned learning experiences for teacher-candidates within a program. This visualization may spark discussion regarding program coherence and opportunities for teacher-candidates to develop expertise and deep learning.</p>
+<h4>Empty Course Displays</h4>
+<p>
+If no data is available on how technology is taught in a course, then the display will be empty boxes. The course is displayed so that all courses in a program sequence are present. Faculty can add alignment to ISTE standards at any time by editing the course alignment spreadsheet for their program.</p>
+<h4>Figure</h4>
+<p>
+  The bar graph presents a visualization of Table 2 displaying how each ISTE standard indicator is taught through an estimated course sequence. The colored bars represent teaching modes enabling faculty to quickly see program strengths and areas for further discussion. The course sequences were taken from the first course sequence listed on each programs website.
+
+</p>
+<h4>Feedback</h4>
+<p>
+We value your feedback on this website. Please use <a href="https://forms.gle/BjD2YiER9DURXcVg9">this Google Form</a> to send your feedback.<br>
+For more information, contact 
+Rhonda Bondie (<a href="mailto:rb4016@hunter.cuny.edu">rb4016@hunter.cuny.edu</a>) and
+Kenny Hirschmann (<a href="mailto:kh2681@hunter.cuny.edu">kh2681@hunter.cuny.edu</a>). <br>
+For technical support or questions, contact Luis Collado (<a href="mailto:luis.collado60@myhunter.cuny.edu">luis.collado60@myhunter.cuny.edu</a>).<br></p>
+
+<h4>Support</h4>
+<p>
+This curriculum mapping tool was supported through <a href="https://citelearning.commons.gc.cuny.edu/">
+CUNY Computer-Integrated Teacher Education (CITE)</a>.
+</p>
+
+<h4>References</h4>
+<p style="text-indent: -20px; padding-left: 20px; margin-bottom: 0;">
+  Brown, P., Roediger, H., McDaniel, M.A. (2014). Make it Stick: the science of successful learning. Harvard University Press.
+</p>
+<p style="text-indent: -20px; padding-left: 20px;">
+Ericsson, K. A., & Lehmann, A. C. (1996). Expert and exceptional performance: Evidence of maximal adaptation to task constraints. Annual review of psychology, 47(1), 273-305.
+</p>
+</details>
+  
+</div> <!-- end sequence container -->
+
+
+</div> <!-- end container -->
+
+
+<!-- begin js -->
+
+<!-- use version 0.20.2 -->
+<script lang="javascript" src="xlsx.full.min.js"></script>
+
+
+<!-- this is for hard coding in the CSVs -->
+<script type="text/javascript" src="local_load.js"></script>
+
+
+<!-- 
+<script type="module" src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+-->
+
+<script type="module">
+
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm"
+
+
+
+
+//import "https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" 
+
+/* integrity="sha512-wNH6xsp2n8CfB91nrBtfc4sfLwYPBMjSWVUwQOp60AYYXH6i8yCwuKFZ4rgK2i6pQek/b+bSyR7b01/922IBzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"> */
+
+/* formatting part */
+
+
+
+
+const sidenav = document.getElementById('sidenav')
+const toptoptop = document.getElementById('toptoptop')
+
+const fixSidenavScroll = () => {
+  //console.log(window.scrollY, toptoptop.offsetHeight);
+  if (window.scrollY <= toptoptop.clientHeight){
+    // have the sticky behavior kick in
+    //const difference = window.scrollY - OGsidenavOffsetTop
+    //sidenav.style.marginTop = `${difference}px`
+    toptoptop.style.top = `${- window.scrollY}px`
+    sidenav.style.top = `${- window.scrollY}px`
+  } else {
+    toptoptop.style.top = `${- toptoptop.clientHeight}px`
+    sidenav.style.top = `${- toptoptop.clientHeight}px`
+
+  }
+}
+
+window.addEventListener("scroll", fixSidenavScroll)
+
+
+
+// library check
+const msg = "this page was unable to load the sheetJS library. \
+make sure that xlsx.full.min.js is in the same folder as this webpage."
+
+/** 
+ * sequences are contained in sequencesObjectAsJson
+ * 
+ * 
+ * 
+ * 
+ * */
+
+// this creates the cute little row
+// with colors as well
+
+const getIndicatorsAsHTML = (indicatorArray) => {
+  // ["6c", "im"]
+  const container = document.createElement('table')
+  container.classList.add('y-indicators-x-classes-indicator')
+
+  // title
+  const first = document.createElement('th')
+  first.classList.add('y-indicators-x-classes-indicator-child')
+  const strong = document.createElement('strong')
+
+  strong.appendChild(document.createTextNode(indicatorArray[0]))
+  first.appendChild(strong)
+
+  container.appendChild(first)
+
+
+  // colors and letters for what to append
+  const IMUA = "imua"
+  const colors = ["#9BEBDC", "#F0E28D", "#F0BF7F", "#ADF092"]
+
+  for (let i = 0; i < 4; i++){
+    const tempI = IMUA.charAt(i)
+    const toAdd = document.createElement('td')
+    toAdd.classList.add('y-indicators-x-classes-indicator-child')
+
+    if (indicatorArray[1].includes(tempI)){
+      toAdd.appendChild(document.createTextNode(tempI))
+      toAdd.style.backgroundColor = colors[i]
+    } else {
+      toAdd.appendChild(document.createTextNode(" "))
+    }
+    container.appendChild(toAdd)
+  }
+
+  return container
+}
+
+
+
+
+class Course {
+  constructor(school, code, dictOfIndicators){
+    this.school = school
+    this.code = code
+    this.name = `${school} ${code}`
+    this.ArrayOfISTEIndicators = Array()
+    if (dictOfIndicators){
+      this.ArrayOfISTEIndicators.push(dictOfIndicators)
+    }
+  }
+
+  getYIndicatorsXClasses(){
+    // if there are multiple courses
+    let megaContainer = document.createElement('div')
+    megaContainer.classList.add('y-indicators-x-classes-megacontainer')
+    if (this.ArrayOfISTEIndicators.length == 0 ){
+      //console.log('boop')
+      let container = document.createElement('table')
+        container.classList.add('y-indicators-x-classes-container')
+
+        const title = document.createElement('th')
+        title.appendChild(document.createTextNode(this.name + ' Needs Data'))
+
+        title.classList.add('y-indicators-x-classes-indicator')
+        // put name
+        container.appendChild(title)
+        // put single row
+
+        const row = document.createElement('tr')
+        row.classList.add('y-indicators-x-classes-indicator')
+        for (let i = 0; i < 5; i++){
+          const first = document.createElement('td')
+          first.classList.add('y-indicators-x-classes-indicator-child')
+          first.appendChild(document.createTextNode('-'))
+          row.appendChild(first)
+        }
+
+        container.appendChild(row)
+
+        // whole thing
+        megaContainer.appendChild(container)
+    } else {
+      this.ArrayOfISTEIndicators.forEach(dict => {
+        // container
+        let container = document.createElement('table')
+        container.classList.add('y-indicators-x-classes-container')
+
+        const title = document.createElement('th')
+        title.appendChild(document.createTextNode(this.name))
+        title.classList.add('y-indicators-x-classes-indicator')
+        container.appendChild(title)
+
+        // each indicator
+        for (const indicator of Object.entries(dict)){
+          //console.log(this.name, indicator)
+          container.appendChild(getIndicatorsAsHTML(indicator))
+        }
+        megaContainer.appendChild(container)
+      })
+    }
+
+
+    
+
+    return megaContainer
+  }
+
+  addISTEindicators(d){
+    this.ArrayOfISTEIndicators.push(d)
+  }
+
+  toString(){
+    return `${this.name}`
+  }
+
+}
+
+class Sequence{
+  constructor(name, link, totalCourses){
+    this.name = name
+    this.link = link
+    // array of COURSE objects
+    this.courses = Array()
+    this.totalCourses = totalCourses
+    this.IMUARecord = {}
+    this.fullyLoaded = false
+    this.element = document.createElement('div')
+    this.noData = false
+  }
+
+  addCourse(c){
+    this.courses.push(c)
+  }
+
+  getAmtSurveyed(){
+    let amt = 0
+    this.courses.forEach(c => {
+      amt += c.ArrayOfISTEIndicators.length
+    })
+    return amt
+  }
+
+  toString(){
+    return `${this.name}`
+  }
+
+  getShortHTML(){
+    // for pdf 
+
+    //return this.getFullHTML();
+
+    // this is to speed up the page loading
+    const container = document.createElement('details')
+    container.classList.add("sequence")
+
+    // give the container an ID of its name with no spaces
+    container.setAttribute("id", this.name.replace(/ /g, ""))
+
+
+
+    const legendLink = document.createElement('a')
+    legendLink.setAttribute('target', '_blank')
+    legendLink.setAttribute('rel', 'noopener noreferrer')
+    legendLink.href = this.link
+    legendLink.appendChild(document.createTextNode(`program sequence`))
+
+
+    let amtMissing = 0
+    this.courses.forEach(entry => {amtMissing += entry.noData ? 0 : 1})
+
+    const label = document.createElement('summary')
+    label.appendChild(document.createTextNode(`${this.name} - `))
+    label.appendChild(legendLink)
+    label.appendChild(document.createTextNode(` - data from ${amtMissing}/${this.totalCourses} courses`))
+    container.appendChild(label)
+
+    const temp = document.createElement('div')
+    temp.appendChild(document.createTextNode('hover to load'))
+
+    
+
+    const loadIfNotLoaded = () => {
+      //console.log("hover")
+      if (!this.fullyLoaded){
+        this.element = this.getFullHTML()
+        container.replaceWith(this.element)
+        setupHovers()
+        setupTooltip()
+      }
+    }
+
+    container.onmouseover = loadIfNotLoaded
+    label.onfocus = loadIfNotLoaded
+
+    this.element = container
+    return container
+  }
+
+  getFullHTML(){
+    this.fullyLoaded = true
+    const container = document.createElement('details')
+    container.classList.add("sequence")
+    this.element = container
+
+    // give the container an ID of its name with no spaces
+    container.setAttribute("id", this.name.replace(/ /g, ""))
+
+
+    const legendLink = document.createElement('a')
+    legendLink.href = this.link
+    legendLink.setAttribute('target', '_blank')
+    legendLink.setAttribute('rel', 'noopener noreferrer')
+    legendLink.appendChild(document.createTextNode(`program sequence`))
+
+
+    let amtMissing = 0
+    this.courses.forEach(entry => {amtMissing += entry.noData ? 0 : 1})
+
+    const label = document.createElement('summary')
+    label.appendChild(document.createTextNode(`${this.name} - `))
+    label.appendChild(legendLink)
+    label.appendChild(document.createTextNode(` - data from ${amtMissing}/${this.totalCourses} courses`))
+    container.appendChild(label)
+
+
+    if (this.courses.length == 0){
+      const bummer = document.createElement('p')
+      bummer.appendChild(document.createTextNode('no courses'))
+      container.appendChild(bummer)
+      return container
+    }
+
+    /**
+     *  this is for the IMUA on the top
+     *  indicators on the left
+     *  */
+
+    const detailsContainer1 = document.createElement('details')
+    detailsContainer1.classList.add('indicator-report')
+    const detailsContainerSummary1 = document.createElement('summary')
+    detailsContainerSummary1.appendChild(document.createTextNode('Indicators by Frequency and Teaching Mode'))
+    detailsContainer1.appendChild(detailsContainerSummary1)
+
+
+    const scrollerContainer1 = document.createElement('div')
+    scrollerContainer1.classList.add('scroller-container')
+
+    // holder for report information
+    // const IMUARecord = {}
+
+    // set up the data structure
+
+    indicators.forEach((i) => {
+      this.IMUARecord[i.slice(0, 2)] = {"i": [], "m": [], "u":[], "a": []}
+    })
+
+    console.log(this)
+      
+
+    // populate the data structure
+
+    this.courses.forEach(course => {
+      // get the container of indicator dicts
+      const array = course.ArrayOfISTEIndicators
+
+      // for each dict
+      array.forEach(dict => {
+
+        // look at each indicator
+        Object.keys(dict).forEach(indicator => {
+
+          // if a certain box is checked
+          ["i", "m", "u", "a"].forEach(letter => {
+            if (dict[indicator].includes(letter)){
+
+              // count it
+              if (!this.IMUARecord[indicator][letter].includes(course)){
+                this.IMUARecord[indicator][letter].push(course)
+              }
+            }
+          })
+        })
+      })
+    })
+
+    
+    /** 
+     *  IMUARecord now looks like this:
+     * {
+     * "1a" : {
+     *  "i": [SEDC 704, EDL 100], 
+     *  "m": [], 
+     *  "u": [], 
+     *  "a": [SEDC 100]
+     * },
+     * ...
+     * }
+     * 
+     * */
+
+    const sequenceReportContainer = document.createElement('table')
+    sequenceReportContainer.classList.add('sequence-report-container')
+
+    // create top row
+    const topRowH = document.createElement('thead')
+    topRowH.classList.add('sequence-report-row')
+
+    Array("Standard", "Introduce", "Model", "Use / Do", "Assess").forEach((s,i) => {
+      
+      const tempCell = document.createElement('th')
+      tempCell.classList.add('sequence-report-cell')
+
+
+
+      tempCell.appendChild(document.createTextNode(s))
+      tempCell.onclick = () => {
+        sortTableByColumn(sequenceReportContainer, i)
+      }
+      topRowH.appendChild(tempCell)
+    })
+
+    sequenceReportContainer.appendChild(topRowH)
+
+    // missing indicators
+    const zeros = {"i": [], "m": [], "u":[], "a": []}
+    // flimsy coverage
+    const oneTwos = {"i": [], "m": [], "u":[], "a": []}
+    // ideal coverage
+    const threeToFives = {"i": [], "m": [], "u":[], "a": []}
+
+    const moreThanFives = {"i": [], "m": [], "u":[], "a": []}
+
+
+    Object.keys(this.IMUARecord).forEach(indicator => {
+      const row = document.createElement('tr')
+      row.classList.add('sequence-report-row')
+
+      // create the row indicator cell
+
+      const rowIndicatorCell = document.createElement('td')
+      rowIndicatorCell.classList.add('sequence-report-cell')
+
+      rowIndicatorCell.setAttribute("data-value", indicator)
+      const boldy = document.createElement('strong')
+      boldy.appendChild(document.createTextNode(indicator))
+      rowIndicatorCell.appendChild(boldy)
+      row.appendChild(rowIndicatorCell)
+
+      // go through I, M, U, A and calculate percentages
+
+      Object.keys(this.IMUARecord[indicator]).forEach(letter => {
+        const classes = this.IMUARecord[indicator][letter]
+        const tally = classes.length
+
+        const tempCell = document.createElement('td')
+        tempCell.classList.add('sequence-report-cell')
+        tempCell.setAttribute("data-value", tally)
+
+        const pct = Math.round(100*tally/this.courses.length)
+        let string = ""
+        const toPut = document.createTextNode(`${tally} course${tally == 1 ? "" : "s"} (${pct}%)`)
+
+        const expander = document.createElement('details')
+        expander.classList.add('indicator-see-classes')
+        const summary = document.createElement('summary')
+        const list = document.createElement('ul')
+        classes.forEach(c => {
+          const li = document.createElement('li')
+          li.appendChild(document.createTextNode(c))
+          list.appendChild(li)
+        })
+        summary.appendChild(toPut)
+        expander.appendChild(summary)
+        expander.appendChild(list)
+        
+
+        tempCell.appendChild(expander)
+
+        if (tally == 0){
+          tempCell.style.backgroundColor = "pink"
+          zeros[letter].push(indicator)
+          tempCell.style.fontWeight = "bold"
+        }
+
+        else if(tally == 1 || tally == 2){
+          tempCell.style.backgroundColor = "mistyrose"
+          oneTwos[letter].push(indicator)
+        }
+
+        // ideally, between 3-5 times each indicator
+        else if (tally >= 3 && tally <= 5){
+          tempCell.style.backgroundColor = "palegreen"
+          threeToFives[letter].push(indicator)
+        }
+
+        else if (tally > 5){
+          tempCell.style.backgroundColor = "#fcff82"
+          moreThanFives[letter].push(indicator)
+        }
+
+        row.appendChild(tempCell)
+      })
+
+      sequenceReportContainer.appendChild(row)
+    })
+
+    scrollerContainer1.appendChild(sequenceReportContainer)
+    detailsContainer1.appendChild(scrollerContainer1)
+
+
+    /* this is for the little summary */
+    const lilSummary = document.createElement('details')
+
+    lilSummary.classList.add('summary')
+
+    lilSummary.classList.add('indicator-report')
+
+
+    const lilSummarySummary = document.createElement('summary')
+    
+    lilSummarySummary.appendChild(document.createTextNode('Course Report'))
+    lilSummary.appendChild(lilSummarySummary)
+
+    const lilSummaryP = document.createElement('p')
+
+    /* begin complete arcs */
+
+    const completeList = document.createElement('ul')
+
+    for (const indicator in this.IMUARecord){
+      let arcIsFull = true;
+      ["i", "m", "u", "a"].forEach(letter => {
+        arcIsFull = arcIsFull && this.IMUARecord[indicator][letter].length > 0
+      })
+      if (arcIsFull){
+        const li = document.createElement('li')
+        let str = `${indicator}: ${dictOfIndicators[indicator]}`
+        li.appendChild(document.createTextNode(str))
+        completeList.appendChild(li)
+      }
+    }
+
+    if (completeList.childElementCount > 0){
+      let builder = "Complete Learning Arcs: (ISTE standards that are introduced, modeled, practiced, and assessed at least once in the program):"
+      let h = document.createElement('h4')
+      h.appendChild(document.createTextNode(builder))
+      lilSummaryP.appendChild(h)
+      lilSummaryP.appendChild(completeList)
+    }
+
+    /* begin overlist */
+    const overList = document.createElement('ul')
+    const endings = 
+    ["introduced", "modeled", "used or practiced", "assessed"]
+
+    for (let i = 0; i < 4; i++){
+      const amtOfOvers = moreThanFives["imua".charAt(i)].length
+      // skip if 0
+      if (amtOfOvers == 0){continue}
+      const li = document.createElement('li')
+      let str = `${amtOfOvers} indicator${amtOfOvers == 1 ? "" : "s"} `
+      //str += `(${Math.round(100*amtOfNos/ Object.keys(IMUARecord).length)}%)`
+      str += ` ${amtOfOvers == 1 ? "is" : "are"} ${endings[i]}`
+      if (moreThanFives["imua".charAt(i)].length > 0){
+        str += " more than 5 times ("
+        li.appendChild(document.createTextNode(str))
+        moreThanFives["imua".charAt(i)].forEach(z => {
+          let span = document.createElement('span')
+          span.classList.add('indicator-hover')
+          span.appendChild(document.createTextNode(z))
+          li.appendChild(span)
+          li.appendChild(document.createTextNode(', '))
+        })
+        li.lastChild.remove()
+        li.appendChild(document.createTextNode(')'))
+      }
+      
+      overList.appendChild(li)
+    }
+
+    if (overList.childElementCount > 0){
+      let h45p = document.createElement('h4')
+      h45p.appendChild(document.createTextNode("Standard indicators "))
+      const coloredWord = document.createElement('span')
+      coloredWord.style.backgroundColor = "#fcff82"
+      coloredWord.appendChild(document.createTextNode('covered more than 5 times'))
+      h45p.appendChild(coloredWord)
+      h45p.appendChild(document.createTextNode(':'))
+      lilSummaryP.appendChild(h45p)
+      lilSummaryP.appendChild(overList)
+    }
+
+    
+    /* begin goodlist */
+    const goodList = document.createElement('ul')
+
+    for (let i = 0; i < 4; i++){
+      const amtOfYeses = threeToFives["imua".charAt(i)].length
+      // skip if 0
+      if (amtOfYeses == 0){continue}
+      const li = document.createElement('li')
+      let str = `${amtOfYeses} indicator${amtOfYeses == 1 ? "" : "s"} `
+      //str += `(${Math.round(100*amtOfNos/ Object.keys(IMUARecord).length)}%)`
+      str += ` ${amtOfYeses == 1 ? "is" : "are"} ${endings[i]}`
+      if (threeToFives["imua".charAt(i)].length > 0){
+        str += " 3-5 times ("
+        li.appendChild(document.createTextNode(str))
+        threeToFives["imua".charAt(i)].forEach(z => {
+          let span = document.createElement('span')
+          span.classList.add('indicator-hover')
+          span.appendChild(document.createTextNode(z))
+          li.appendChild(span)
+          li.appendChild(document.createTextNode(', '))
+        })
+        li.lastChild.remove()
+        li.appendChild(document.createTextNode(')'))
+      }
+      
+      goodList.appendChild(li)
+    }
+
+    if (goodList.childElementCount > 0){
+      let h435 = document.createElement('h4')
+      h435.appendChild(document.createTextNode("Standard indicators "))
+      const coloredWord = document.createElement('span')
+      coloredWord.style.backgroundColor = "palegreen"
+      coloredWord.appendChild(document.createTextNode('covered 3-5 times'))
+      h435.appendChild(coloredWord)
+      h435.appendChild(document.createTextNode(':'))
+      lilSummaryP.appendChild(h435)
+      lilSummaryP.appendChild(goodList)
+    }
+
+
+
+    /* begin onelist */
+    const oneList = document.createElement('ul')
+
+    for (let i = 0; i < 4; i++){
+      const amtOfOnes = oneTwos["imua".charAt(i)].length
+      // skip if 0
+      if (amtOfOnes == 0){continue}
+      const li = document.createElement('li')
+      let str = `${amtOfOnes} indicator${amtOfOnes == 1 ? "" : "s"} `
+      //str += `(${Math.round(100*amtOfNos/ Object.keys(IMUARecord).length)}%)`
+      str += ` ${amtOfOnes == 1 ? "is" : "are"} ${endings[i]}`
+
+      if (oneTwos["imua".charAt(i)].length > 0){
+        str += " only 1-2 times ("
+        li.appendChild(document.createTextNode(str))
+        oneTwos["imua".charAt(i)].forEach(z => {
+          let span = document.createElement('span')
+          span.classList.add('indicator-hover')
+          span.appendChild(document.createTextNode(z))
+          li.appendChild(span)
+          li.appendChild(document.createTextNode(', '))
+        })
+        li.lastChild.remove()
+        li.appendChild(document.createTextNode(')'))
+      }
+      oneList.appendChild(li)
+    }
+
+    if (oneList.childElementCount > 0){
+      let h412 = document.createElement('h4')
+      h412.appendChild(document.createTextNode("Standard indicators "))
+      const coloredWord = document.createElement('span')
+      coloredWord.style.backgroundColor = "mistyrose"
+      coloredWord.appendChild(document.createTextNode('taught 1-2 times'))
+      h412.appendChild(coloredWord)
+      h412.appendChild(document.createTextNode(':'))
+      lilSummaryP.appendChild(h412)
+      lilSummaryP.appendChild(oneList)
+    }
+
+
+
+    /* begin badlist */
+
+    const badList = document.createElement('ul')
+
+    for (let i = 0; i < 4; i++){
+      const amtOfNos = zeros["imua".charAt(i)].length
+      // skip if 0
+      if (amtOfNos == 0){continue}
+      const li = document.createElement('li')
+      let str = `${amtOfNos} indicator${amtOfNos == 1 ? "" : "s"} `
+      //str += `(${Math.round(100*amtOfNos/ Object.keys(IMUARecord).length)}%)`
+      str += ` ${amtOfNos == 1 ? "is" : "are"} not ${endings[i]}`
+      str += " ("
+      li.appendChild(document.createTextNode(str))
+      if (zeros["imua".charAt(i)].length > 0){
+        zeros["imua".charAt(i)].forEach(z => {
+          let span = document.createElement('span')
+          span.classList.add('indicator-hover')
+          span.appendChild(document.createTextNode(z))
+          li.appendChild(span)
+          li.appendChild(document.createTextNode(', '))
+        })
+        li.lastChild.remove()
+        li.appendChild(document.createTextNode(')'))
+      }
+      badList.appendChild(li)
+    }
+
+    if (badList.childElementCount > 0){
+      let h40 = document.createElement('h4')
+      h40.appendChild(document.createTextNode("Standard indicators "))
+      const coloredWord = document.createElement('span')
+      coloredWord.style.backgroundColor = "pink"
+      coloredWord.appendChild(document.createTextNode('not taught'))
+      h40.appendChild(coloredWord)
+      h40.appendChild(document.createTextNode(':'))
+      lilSummaryP.appendChild(h40)
+      lilSummaryP.appendChild(badList)
+    }
+    lilSummary.appendChild(lilSummaryP)
+
+
+
+
+
+
+
+
+    /*  
+        this is for the classes on the top, 
+        indicators on the left
+    */
+    
+    const detailsContainer2 = document.createElement('details')
+    detailsContainer2.classList.add('course-report')
+    const detailsContainerSummary2 = document.createElement('summary')
+    detailsContainerSummary2.appendChild(document.createTextNode('Indicators By Sequence and Teaching Mode'))
+    detailsContainer2.appendChild(detailsContainerSummary2)
+
+
+
+
+    const scrollerContainer2 = document.createElement('div')
+    scrollerContainer2.classList.add('scroller-container')
+    detailsContainer2.appendChild(scrollerContainer2)
+
+    this.courses.forEach(c => {
+      scrollerContainer2.appendChild(c.getYIndicatorsXClasses())
+    })
+
+    // 1 is the report
+    detailsContainer1.open = false
+    // 2 is the colorful map
+    detailsContainer2.open = false
+
+    
+    container.appendChild(lilSummary)
+    container.appendChild(detailsContainer1)
+    container.appendChild(detailsContainer2)
+
+    
+    return container
+  }
+}
+
+
+const sequenceContainer = document.getElementById("sequence-container")
+
+
+
+
+
+// these two... do all of the heavy lifting
+const courses = {}
+const sequences = {}
+
+
+
+let sequencesObject = null
+let indicatorsObject = null
+let indicatorsObjectAsJson = {}
+let sequencesObjectAsJson = {}
+
+
+
+/** 
+ * this sets literally everything up
+ * */
+
+window.onload = async () => {
+  // encoder because we can only take ArrayBuffers as input
+  let enc = new TextEncoder();
+
+  // the indicators, into JSON
+  indicatorsObject = await XLSX.read(enc.encode(indicatorsCSV))
+  indicatorsObjectAsJson = await XLSX.utils.sheet_to_json(indicatorsObject.Sheets.Sheet1)
+
+  // the sequences, into JSON
+  sequencesObject = await XLSX.read(enc.encode(sequencesCSV))
+  sequencesObjectAsJson = await XLSX.utils.sheet_to_json(sequencesObject.Sheets.Sheet1)
+  /*for (let weirdString in sequencesObjectAsJson){
+    sequencesObjectAsJson[weirdString.replace('â', '-')] = sequencesObjectAsJson[weirdString]
+    delete sequencesObjectAsJson[weirdString]
+  }*/
+
+
+  // go through each indicator object and 
+  // parse the classes into the options of classes
+  // aka
+  // SPED70550,imu,i,im,imua --> SPED 70550 Object
+  await parseCourses(indicatorsObjectAsJson)
+
+  // go through each sequences object and
+  // parse the sequences into the sequences array
+  // aka
+  // Computer Science, cs1, cs2 --> Sequence Object
+  await parseSequences(sequencesObjectAsJson)
+
+  // display them!
+  await insertSequenceHTML()
+
+  // create the overall-level reports
+  await doOverallReports()
+
+  // set up the tooltip thing, this has to go last
+  await setupTooltip()
+
+  // setup collapsible jumplist
+  await collapsibleJumplist()
+
+
+  // have all links open in new tab
+  setTimeout(() => {document.querySelectorAll('a').forEach(a => {
+    // if not internal link,
+    if (!a.hash){
+      a.setAttribute("target", "_blank")
+      a.setAttribute("rel", "noreferrer noopener")
+      //console.log(a)
+    }
+  })}, 100)
+
+
+}
+
+
+const loadedJSONstring = JSON.parse(structureJSONstring)
+
+const indicators = loadedJSONstring['indicators']
+
+let words = []
+
+loadedJSONstring['standards'].forEach(s => {
+  words.push(s.split(" ")[3])
+})
+
+const dictOfIndicators = {}
+indicators.forEach(i => {
+  dictOfIndicators[i.slice(0, 2)] = i.slice(4)
+})
+
+
+const setupTooltip = () => {
+
+  // for each class indicator row
+
+  const colorfulRow = Array.from(document.querySelectorAll('.y-indicators-x-classes-indicator'))
+
+  // for indicator-level row
+
+  const redRow = Array.from(document.querySelectorAll('.sequence-report-row'))
+
+  redRow.concat(colorfulRow).forEach(row => {
+    row.onclick = () => {
+      const indicator = row.firstElementChild.textContent
+      const toShow = dictOfIndicators[indicator]
+      const i = Number(indicator.charAt(0)-1)
+
+      tooltip.textContent = words[i] + " " + indicator + ": " + toShow
+    }
+  })
+}
+
+// tooltip control
+
+let tooltipShowing = false;
+
+const tooltip = document.createElement('div')
+tooltip.setAttribute('id', 'tooltip')
+tooltip.textContent = "placeholder tooltip content"
+
+document.body.prepend(tooltip)
+
+// make tooltip follow mouse
+document.onmousemove = (e) => {
+  if (tooltipShowing){
+    //console.log(e.screenX, screenY)
+    tooltip.style.left = `${window.scrollX + e.clientX}px`
+     tooltip.style.top = `${window.scrollY + e.clientY}px`
+  }
+} 
+
+
+
+setTimeout(setupHovers, 100)
+
+function setupHovers(){
+
+  const toHover = document.querySelectorAll('.indicator-hover')
+
+  toHover.forEach(el => {
+    el.onmouseenter = (e) => {
+      tooltipShowing = true
+      tooltip.style.display = 'inline-block'
+
+      const i = Number(el.textContent.charAt(0)-1)
+      tooltip.textContent = words[i] + " " + el.textContent + ": " + dictOfIndicators[el.textContent]
+      //console.log(e)
+    }
+    el.onmouseleave = (e) => {
+      if (tooltipShowing){
+        tooltip.style.display = 'none'
+        tooltipShowing = false
+      } 
+    }
+  })
+}
+
+/* d3 */
+
+
+function getGroupedBarChartFor(sequence){
+
+  //return document.createElement('img')
+  /** 
+   * code taken from
+   * https://observablehq.com/@d3/grouped-bar-chart/2
+   * 
+   * 
+   *  [
+   *    {standard: "1a", type: "i", amount: 3},
+   *    {standard: "1a", type: "m", amount: 2}
+   *   ]
+   * 
+   * */
+
+  let helperStructure = {}
+  const data = []
+
+  // setup helper structure
+  Object.keys(dictOfIndicators).forEach(i => {
+    ["i", "m", "u", "a"].forEach(letter => {
+      helperStructure[`${i}${letter}`] = 0
+    })
+  })
+
+  sequence.courses.forEach(course => {
+    // each course 
+    course.ArrayOfISTEIndicators.forEach(dict => {
+      // each array of indicators to letters
+      for (const key in dict){
+        // 1a
+
+        // add 1 if the letter is there
+         helperStructure[`${key}i`] += 
+         (dict[key].includes("i") ? 1 : 0)
+         helperStructure[`${key}m`] += 
+         (dict[key].includes("m") ? 1 : 0)
+         helperStructure[`${key}u`] += 
+         (dict[key].includes("u") ? 1 : 0)
+         helperStructure[`${key}a`] += 
+         (dict[key].includes("a") ? 1 : 0)
+      }
+    })
+  })
+
+  for (const key in helperStructure){
+    data.push({
+      standard: key.slice(0, 2),
+      type: key.charAt(2),
+      amount: helperStructure[key]
+    })
+  }
+
+
+
+
+  // Specify the chart’s dimensions.
+  const width = document.querySelector('.sequence').offsetWidth * 0.9;
+  const height = 400;
+  const marginTop = 30;
+  const marginRight = 30;
+  const marginBottom = 30;
+  const marginLeft = 30;
+
+  // Prepare the scales for positional and color encodings.
+  // Fx encodes the indicator.
+  const fx = d3.scaleBand()
+      .domain(new Set(data.map(d => d.standard)))
+      .rangeRound([marginLeft, width - marginRight])
+      // space between indicators
+      .paddingInner(0.5);
+
+  // Both x and color encode the age class.
+  const type = new Set(data.map(d => d.type));
+
+  const x = d3.scaleBand()
+      .domain(type)
+      .rangeRound([0, fx.bandwidth()])
+      // space between bars/types
+      .padding(0);
+
+  const colors = ["rgb(155, 235, 220)", "rgb(240, 226, 141)", "rgb(240, 191, 127)","rgb(173, 240, 146)"]
+
+  const color = d3.scaleOrdinal()
+      .domain(type)
+      .range(colors)
+      .unknown("#ccc");
+
+  // Y encodes the height of the bar.
+  const y = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.amount)]).nice()
+      .rangeRound([height - marginBottom, marginTop]);
+
+  // A function to format the value in the tooltip.
+  const formatValue = x => isNaN(x) ? "N/A" : x.toLocaleString("en")
+
+  // Create the SVG container.
+  const svg = d3.create("svg")
+      .attr("width", width+40)
+      .attr("height", height+40)
+      .attr("viewBox", [-10, -10, width+20, height+20])
+      .attr("style", "max-width: 100%; height: auto;");
+
+  // Append a group for each indicator, and a rect for each type.
+  svg.append("g")
+    .selectAll()
+    .data(d3.group(data, d => d.standard))
+    .join("g")
+      .attr("transform", ([standard]) => `translate(${fx(standard)},0)`)
+    .selectAll()
+    .data(([, d]) => d)
+    .join("rect")
+      .attr("x", d => x(d.type))
+      .attr("y", d => y(d.amount))
+      .attr("width", x.bandwidth())
+      .attr("height", d => y(0) - y(d.amount))
+      .attr("fill", d => color(d.type));
+
+  // Append the horizontal axis.
+  svg.append("g")
+      .attr("transform", `translate(0,${height - marginBottom})`)
+      .call(d3.axisBottom(fx).tickSizeOuter(0))
+      //.call(g => g.selectAll(".domain").remove());
+
+  // y axis title
+  svg.append('text')
+    .attr('class', 'y-label')
+    .attr('text-anchor', 'end')
+    .attr("y", -10)
+    .attr('x', -120)
+    .attr("dy", ".75em")
+    .attr("transform", "rotate(-90)")
+    .text("Number of Courses");
+
+  // x axis title
+  svg.append('text')
+    .attr('class', 'x-label')
+    .attr('text-anchor', 'end')
+    .attr("y", height)
+    .attr('x', width/2 + 10)
+    .attr("dy", ".75em")
+    .text("Indicator");
+
+  // Append the vertical axis.
+  svg.append("g")
+      .attr("transform", `translate(${marginLeft},0)`)
+      .call(d3.axisLeft(y).ticks(null, "s"))
+      .call(g => g.selectAll(".domain").remove());
+
+
+  /* legend */
+
+  ["introduce", "model", "use", "assess"].forEach((w, i) => {
+    svg.append("circle")
+      .attr("cx",40)
+      .attr("cy",i*20)
+      .attr("r", 6)
+      .style("fill", colors[i])
+
+    svg.append("text")
+      .attr("x", 50)
+      .attr("y", i*20)
+      .text(w)
+      .style("font-size", "15px")
+      .attr("alignment-baseline","middle")
+  })
+
+
+
+  // Return the chart with the color scale as a property (for the legend).
+  const chart = Object.assign(svg.node(), {scales: {color}});
+
+
+  chart.setAttribute('role', 'img')
+
+  // Create the <title> element
+  const titleElement = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+  
+  // Set the content of the <title> element
+  titleElement.textContent = 'Chart indicating the frequency of teaching modes for a given sequence.';
+  chart.insertBefore(titleElement, chart.firstChild)
+
+  return chart
+
+}
+
+
+async function collapsibleJumplist(){
+  const jumplinks = document.querySelectorAll('#sidenav > details')
+  jumplinks.forEach(j => {
+    j.onclick = () => {
+      if (j.open == false){
+        jumplinks.forEach(k => {
+          if (j != k){
+            k.open = false
+          }
+        })
+      }
+    }
+  })
+}
+
+
+
+/**
+ * this function takes in a table and an index
+ * and sorts the table according to that index
+*/
+
+function lessThan(a, b, n){
+  const aa = a.querySelector(`.sequence-report-cell:nth-child(${n+1})`).getAttribute('data-value')
+  const bb = b.querySelector(`.sequence-report-cell:nth-child(${n+1})`).getAttribute('data-value')
+
+  const j = isNaN(aa) ? aa < bb : (Number(aa) < Number(bb))
+  //console.log(aa, bb, j)
+  return j
+}
+
+function sortTableByColumn(tableContainer, n){
+  let doneSorting = false
+  let rows = Array.from(tableContainer.querySelectorAll('.sequence-report-row'))
+  let passes = 0
+  const thisCell = rows[0].querySelector(`.sequence-report-cell:nth-child(${n+1})`)
+
+  while (!doneSorting){
+    doneSorting = true
+
+    for (let j = 1; j < rows.length-1; j++){
+      if (lessThan(rows[j], rows[j+1], n)){
+        //console.log(rows[j], rows[j+1])
+        doneSorting = false
+        tableContainer.insertBefore(rows[j+1], rows[j])
+      }
+    }
+    passes++
+    rows = Array.from(tableContainer.querySelectorAll('.sequence-report-row'))
+
+  }
+
+  const arrow = document.createElement('img')
+  arrow.src = "https://www.svgrepo.com/show/27797/right-arrow.svg"
+  arrow.style.transform = "rotate(90deg)"
+  arrow.style.height = "15px"
+  arrow.style.marginLeft = "10px"
+  thisCell.parentElement.querySelectorAll('img').forEach(i => {i.remove()})
+  thisCell.appendChild(arrow)
+
+  //console.log(passes)
+  
+  // already sorted, so sort the other way
+  if (passes == 1){
+    arrow.style.transform = "rotate(-90deg)"
+
+    let doneSorting = false
+    while (!doneSorting && passes < 200){
+      doneSorting = true
+
+      for (let j = 1; j < rows.length-1; j++){
+        if (lessThan(rows[j+1], rows[j], n)){
+          //console.log(rows[j], rows[j+1])
+          doneSorting = false
+          // swap
+          tableContainer.insertBefore(rows[j+1], rows[j])
+        }
+      }
+      passes++
+      rows = Array.from(tableContainer.querySelectorAll('.sequence-report-row'))
+    }
+  }
+}
+
+
+
+async function doOverallReports(){
+
+  /* do SPED first */
+
+  const SPEDDeptTitles = document.querySelectorAll('#sped-jumplist > .jumplist-child')
+
+  const SPEDCourses = []  
+
+  SPEDDeptTitles.forEach(el => {
+    // get the name
+    const tempName = el.textContent
+    // get the sequence object
+    const tempSequence = sequences[tempName]
+    // add all of the classes to the array
+    tempSequence.courses.forEach(c => {
+      if (!SPEDCourses.includes(c)){
+        SPEDCourses.push(c)
+      }
+    })
+  })
+
+  // create the sequence object
+  const fakeSpedSequence = new Sequence(
+    "Special Education","", SPEDCourses.length)
+  fakeSpedSequence.courses = SPEDCourses.sort()
+
+  // this HTMLtoInsert can change and get removed
+
+  let HTMLtoInsert1 = fakeSpedSequence.getFullHTML()
+
+  //console.log(HTMLtoInsert1)
+
+  // remove the bullet points
+  HTMLtoInsert1.querySelector('details.summary').remove()
+
+  // remove the horizontal scrolling of course sequence
+  //HTMLtoInsert1.querySelector('details.course-report').remove()
+
+  HTMLtoInsert1.insertBefore(getGroupedBarChartFor(fakeSpedSequence), HTMLtoInsert1.querySelector('.details'))
+
+  sequenceContainer.insertBefore(HTMLtoInsert1, sequenceContainer.querySelector('.sequence'))
+
+  
+  const a1 = document.createElement('a')
+  a1.classList.add('jumplist-child')
+  const idNoSpaces1 = "#" + fakeSpedSequence.name.replace(/ /g, "")
+  a1.href=idNoSpaces1
+  a1.appendChild(document.createTextNode(fakeSpedSequence.name))
+
+  a1.onclick = () => {
+    fakeSpedSequence.element.firstElementChild.click()
+  }
+
+  /* gen ed */
+
+  let GenTitles = document.querySelectorAll('#gened-jumplist > .jumplist-child')
+  let GenCourses = []
+  GenTitles.forEach(el => {
+    let tempName = el.textContent
+    let tempSequence = sequences[tempName]
+    tempSequence.courses.forEach(c => {
+      if (!GenCourses.includes(c)){
+        GenCourses.push(c)
+      }
+    })
+  })
+
+  const fakeGenSequence = new Sequence("General Education", "", GenCourses.length)
+  fakeGenSequence.courses = GenCourses.sort()
+  let HTMLtoInsert2 = fakeGenSequence.getFullHTML()
+  HTMLtoInsert2.querySelector('details.summary').remove()
+  //HTMLtoInsert2.querySelector('details.course-report').remove()
+  HTMLtoInsert2.insertBefore(getGroupedBarChartFor(fakeGenSequence), HTMLtoInsert2.querySelector('.details'))
+  
+  sequenceContainer.insertBefore(HTMLtoInsert2, sequenceContainer.querySelectorAll('.sequence')[1])
+
+  const a2 = document.createElement('a')
+  a2.classList.add('jumplist-child')
+  const idNoSpaces2 = "#" + fakeGenSequence.name.replace(/ /g, "")
+  a2.href=idNoSpaces2
+  a2.appendChild(document.createTextNode(fakeGenSequence.name))
+
+  a2.onclick = () => {
+    fakeGenSequence.element.firstElementChild.click()
+  }
+
+
+  const fakeHunterSequence = new Sequence("School of Education", "", GenCourses.length + SPEDCourses.length)
+  fakeHunterSequence.courses = [... new Set(GenCourses.concat(SPEDCourses).sort())]
+  let HTMLtoInsert3 = fakeHunterSequence.getFullHTML()
+  HTMLtoInsert3.querySelector('details.summary').remove()
+  //HTMLtoInsert3.querySelector('details.course-report').remove()
+  HTMLtoInsert3.insertBefore(getGroupedBarChartFor(fakeHunterSequence), HTMLtoInsert3.querySelector('.details'))
+  sequenceContainer.insertBefore(HTMLtoInsert3, sequenceContainer.querySelectorAll('.sequence')[1])
+
+  const a3 = document.createElement('a')
+  a3.classList.add('jumplist-child')
+  const idNoSpaces3 = "#" + fakeHunterSequence.name.replace(/ /g, "")
+  a3.href=idNoSpaces3
+  a3.appendChild(document.createTextNode(fakeHunterSequence.name))
+  
+  a3.onclick = () => {
+    fakeHunterSequence.element.querySelector('summary').click()
+  }
+
+
+
+
+  const fakeFoundationsSequence = new Sequence("Educational Foundations", "", 0)
+  const foundationsCourses = []
+  for (const name in courses){
+    if (["QSTB", "SEDF", "ECF", "CEDF"].includes(courses[name].school)){
+      foundationsCourses.push(courses[name])
+    } 
+  }
+  fakeFoundationsSequence.courses = foundationsCourses.sort()
+  fakeFoundationsSequence.totalCourses = foundationsCourses.length
+  const HTMLtoInsert4 = fakeFoundationsSequence.getFullHTML()
+  HTMLtoInsert4.querySelector('details.summary').remove()
+  //HTMLtoInsert4.querySelector('details.course-report').remove()
+  HTMLtoInsert4.insertBefore(getGroupedBarChartFor(fakeHunterSequence), HTMLtoInsert4.querySelector('.details'))
+  sequenceContainer.insertBefore(HTMLtoInsert4, sequenceContainer.querySelectorAll('.sequence')[1])
+
+  const a4 = document.createElement('a')
+  a4.classList.add('jumplist-child')
+  const idNoSpaces4 = "#" + fakeFoundationsSequence.name.replace(/ /g, "")
+  a4.href=idNoSpaces4
+  a4.appendChild(document.createTextNode(fakeFoundationsSequence.name))
+  
+  a4.onclick = () => {
+    fakeFoundationsSequence.element.querySelector('summary').click()
+  }
+
+  sequenceContainer.insertBefore(HTMLtoInsert1, sequenceContainer.querySelectorAll('.sequence')[0])
+
+  sequenceContainer.insertBefore(HTMLtoInsert2, sequenceContainer.querySelectorAll('.sequence')[0])
+
+  sequenceContainer.insertBefore(HTMLtoInsert4, sequenceContainer.querySelectorAll('.sequence')[0])
+
+  sequenceContainer.insertBefore(HTMLtoInsert3, sequenceContainer.querySelectorAll('.sequence')[0])
+
+
+
+  // foundations
+  deptJumpList.appendChild(a3);
+  // hunter soe
+  deptJumpList.appendChild(a4);
+  // gened
+  deptJumpList.appendChild(a2);
+  // foundations
+  deptJumpList.appendChild(a1);
+
+
+  [HTMLtoInsert1, HTMLtoInsert2, HTMLtoInsert3, HTMLtoInsert4].forEach(e => {
+    e.querySelectorAll('.sequence-report-cell').forEach(ee => {
+      ee.style.backgroundColor = ""
+    })
+  })
+}
+
+
+
+// toggle show on click
+document.onclick = (e) => {
+
+  // position update
+
+  tooltip.style.left = `${window.scrollX + e.clientX}px`
+  tooltip.style.top = `${window.scrollY + e.clientY}px`
+
+  // toggle
+
+  if (tooltipShowing){
+    tooltip.style.display = 'none'
+    tooltipShowing = false
+  } else {
+
+    // check if we clicked on a row (2 letter first child)
+    if (e.target.parentElement.firstElementChild.textContent.length == 2){
+      tooltip.style.display = 'inline-block'
+      tooltipShowing = true   
+    }
+  }
+
+  fixSidenavScroll()
+}
+
+
+const addCourseSafely = (course) => {
+  // check if a course already exists.
+  // if it already has been saved, don't re-write it
+  // instead, attach the ISTE standards to the array
+  // of existing standards evaluations for the course
+  if (course.name in courses){
+    courses[course.name].addISTEindicators(course.ArrayOfISTEIndicators[0])
+  } else{
+    courses[course.name] = course
+  }
+}
+
+
+
+const parseCourses = async (indicators) => {
+  return new Promise((resolve) => {
+    indicators.forEach(o => {
+      const classCode = o["class code"]
+
+      const deepCopy = JSON.parse(JSON.stringify(o))
+      delete deepCopy["class code"]
+
+      // handle undergrad/grad numbers
+      const theTwo = classCode.split("/")
+      if (theTwo.length == 2){
+        // if we have two, the processing needs to happen here
+        //console.log(theTwo)
+
+        // split first class before the first number
+        const classArray1 = theTwo[0].split(/(?=\d)/)
+
+        const school1 = classArray1[0]
+        let code1 = theTwo[0].slice(school1.length)
+
+        // console.log(school1, code1)
+
+        // if it's two classes:
+
+        if (theTwo[1].length == 5){
+          const school2 = school1
+          let code2 = theTwo[1]
+
+          while (code1.length < 5){code1 += "0"}
+          addCourseSafely(new Course(school1, code1, deepCopy))
+          while (code2.length < 5){code2 += "0"}
+          addCourseSafely(new Course(school2, code2, deepCopy))
+          // console.log(school1, code1)
+          // console.log(school2, code2)
+        } else {
+
+          // split first class before the first number
+          const classArray2 = theTwo[1].split(/(?=\d)/)
+
+          const school2 = classArray2[0]
+          let code2 = theTwo[1].slice(school2.length)
+
+          while (code1.length < 5){code1 += "0"}
+          addCourseSafely(new Course(school1, code1, deepCopy))
+          while (code2.length < 5){code2 += "0"}
+          addCourseSafely(new Course(school2, code2, deepCopy))
+          // console.log(school1, code1)
+          // console.log(school2, code2)
+        }
+      } else {
+
+        // know for sure not dealing with undergrad/grad
+
+        // split before the first number
+        const classArray = classCode.split(/(?=\d)/)
+
+        //console.log(classArray)
+
+        const school = classArray[0]
+        let code = classCode.slice(school.length)
+
+
+        while (code.length < 5){code += "0"}
+        addCourseSafely(new Course(school, code, deepCopy))
+        // console.log(school, code)
+      }
+
+      
+    })
+    resolve('o')
+  })
+}
+
+const parseSequences = async (dictOfSequences) => {
+  //console.log(Object.keys(courses))
+  return new Promise(resolve => {
+    dictOfSequences.forEach(s => {
+      // no use in this block if no sequence
+      if (!('sequence' in s)){return}
+      const sequentialCourseArray = s.sequence.split(',')
+      //console.log(s["sequence name"])
+      let tempSequenceObject = new Sequence(s["sequence name"].replace('â', '-'), s["link"], sequentialCourseArray.length)
+      sequences[tempSequenceObject.name] = tempSequenceObject
+
+
+      sequentialCourseArray.forEach(c => {
+        const courseString = c.trim()
+        if (courseString in courses){
+          // course with indicator data filled out
+          tempSequenceObject.addCourse(courses[courseString])
+          //console.log(courses[courseString])
+        } else {
+          const explode = courseString.split(" ")
+          //console.log(explode)
+          // course without indicator data 
+          const emptyDict = {}
+           indicators.forEach(i => {
+            emptyDict[i.slice(0,2)] = ""
+          })
+
+
+          const ghostCourse = new Course(explode[0], explode[1], false)
+          ghostCourse.noData = true
+          //console.log(ghostCourse)
+
+          if (ghostCourse.name && ghostCourse.school.length < 6){
+            courses[courseString] = ghostCourse
+
+            tempSequenceObject.addCourse(ghostCourse)
+          }
+
+           
+        }
+      })
+      
+    })
+    resolve('o')
+  })
+}
+
+const deptJumpList = document.getElementById('overall-jumplist')
+
+const SPEDJumpList = document.getElementById('sped-jumplist')
+
+const GenEdJumpList = document.getElementById('gened-jumplist')
+
+const EtcJumpList = document.getElementById('etc-jumplist')
+
+
+const addToJumplist = (s) => {
+  // s is a sequence
+  const a = document.createElement('a')
+  a.classList.add('jumplist-child')
+
+  // make clicking a sequence open it up
+  a.onclick = () => {
+    s.element.onmouseover()
+    s.element.firstElementChild.click()
+    //console.log(s)
+  }
+
+
+  // clean the titles up a bit
+  let text = s.name
+  /*
+  text = text.replace('Advanced Certificate', 'AC')
+  text = text.replace('Adolescent', 'Adol.')
+  text = text.replace('Special Education', 'SPED')
+  */
+
+  a.appendChild(document.createTextNode(text))
+
+  const idNoSpaces = "#" + s.name.replace(/ /g, "")
+  a.href=idNoSpaces
+
+  const spedIdentifiers = ["blind", "visually impaired", "visual impairment", "special education", "deaf", "disabilities" ]
+
+  const counselingLeadershipIdentifiers = ["counseling", "leadership", "applied"]
+
+
+  // which department
+  if (spedIdentifiers.some((test) => {
+    return s.name.toLowerCase().includes(test)
+  })){
+    SPEDJumpList.appendChild(a)
+  } else if (counselingLeadershipIdentifiers.some((test) => {
+    return s.name.toLowerCase().includes(test)
+  })) {
+    // add to misc jumplist
+    EtcJumpList.appendChild(a)
+    //console.log(s)
+    // and hide the sequence
+    s.element.style.display = "none"
+  } else {
+    GenEdJumpList.appendChild(a)
+  }
+
+  
+}
+
+const insertSequenceHTML = async () => {
+  for (const sequence in sequences){
+
+    // put the sequences into the page
+    sequenceContainer.appendChild(sequences[sequence].getShortHTML())
+
+    addToJumplist(sequences[sequence])
+  }
+}
+
+
+
+
+</script>
+
+<!-- end js -->
+
+</body>
+</html>
